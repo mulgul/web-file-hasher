@@ -2,8 +2,8 @@ use wasm_bindgen::prelude::*;
 
 use base64ct::{Base64, Encoding};
 use blake2::{Blake2b512, Blake2s256};
-use ripemd::{Ripemd160, Ripemd320};
 use md5::Md5;
+use ripemd::{Ripemd160, Ripemd320};
 use sha2::{Digest, Sha256, Sha384, Sha512};
 use sha3::{Sha3_256, Sha3_512};
 
@@ -177,6 +177,9 @@ mod tests {
     #[test]
     fn test_ripemd320() {
         let result = ripemd320("test");
-        assert_eq!("OwouhB5YnPWDY0pd0mXStdSXxMxEskHjTg9i0D6YwbnccpcLm8IOtQ==", result);
+        assert_eq!(
+            "OwouhB5YnPWDY0pd0mXStdSXxMxEskHjTg9i0D6YwbnccpcLm8IOtQ==",
+            result
+        );
     }
 }
