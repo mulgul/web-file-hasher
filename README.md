@@ -1,3 +1,3 @@
-TODO
-- run wasm pack
-- setup indivual functions
+# web-file-hasher
+
+This focuses on giving a UI to hash files using wasm.
