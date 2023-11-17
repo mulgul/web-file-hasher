@@ -2,6 +2,7 @@ use wasm_bindgen::prelude::*;
 
 use base64ct::{Base64, Encoding};
 use blake2::{Blake2b512, Blake2s256};
+use ripemd::{Ripemd160, Ripemd320};
 use md5::Md5;
 use sha2::{Digest, Sha256, Sha384, Sha512};
 use sha3::{Sha3_256, Sha3_512};
@@ -11,6 +12,8 @@ pub fn hasher(hash_type: &str, data: &str) -> Result<String, String> {
     return match hash_type {
         "blake2s256" => Ok(blake2s256(data)),
         "blake2b512" => Ok(blake2b512(data)),
+        "ripemd160" => Ok(ripemd160(data)),
+        "ripemd320" => Ok(ripemd320(data)),
         "sha256" => Ok(sha256(data)),
         "sha512" => Ok(sha512(data)),
         "sha384" => Ok(sha384(data)),
@@ -32,6 +35,33 @@ fn blake2s256(data: &str) -> String {
 
 fn blake2b512(data: &str) -> String {
     let mut hasher = Blake2b512::new();
+    hasher.update(data);
+    let hash = hasher.finalize();
+    let base64_hash = Base64::encode_string(&hash);
+
+    base64_hash
+}
+
+fn md5(data: &str) -> String {
+    let mut hasher = Md5::new();
+    hasher.update(data);
+    let hash = hasher.finalize();
+    let base64_hash = Base64::encode_string(&hash);
+
+    base64_hash
+}
+
+fn ripemd160(data: &str) -> String {
+    let mut hasher = Ripemd160::new();
+    hasher.update(data);
+    let hash = hasher.finalize();
+    let base64_hash = Base64::encode_string(&hash);
+
+    base64_hash
+}
+
+fn ripemd320(data: &str) -> String {
+    let mut hasher = Ripemd320::new();
     hasher.update(data);
     let hash = hasher.finalize();
     let base64_hash = Base64::encode_string(&hash);
@@ -77,15 +107,6 @@ fn sha3_256(data: &str) -> String {
 
 fn sha3_512(data: &str) -> String {
     let mut hasher = Sha3_512::new();
-    hasher.update(data);
-    let hash = hasher.finalize();
-    let base64_hash = Base64::encode_string(&hash);
-
-    base64_hash
-}
-
-fn md5(data: &str) -> String {
-    let mut hasher = Md5::new();
     hasher.update(data);
     let hash = hasher.finalize();
     let base64_hash = Base64::encode_string(&hash);
@@ -145,5 +166,17 @@ mod tests {
     fn test_blake2b512() {
         let result = blake2b512("test");
         assert_eq!("pxB51ChT3qJuRTAEM4ZwpTgUt4E3/77QdgOkHXakg6qbwztYL3fTCmXm8pqJbAQR84MS4dZuC/Fjhshqib6lcg==", result);
+    }
+
+    #[test]
+    fn test_ripemd160() {
+        let result = ripemd160("test");
+        assert_eq!("XlL+5H5rBwVl90NyRozcaZ3okQc=", result);
+    }
+
+    #[test]
+    fn test_ripemd320() {
+        let result = ripemd320("test");
+        assert_eq!("OwouhB5YnPWDY0pd0mXStdSXxMxEskHjTg9i0D6YwbnccpcLm8IOtQ==", result);
     }
 }
