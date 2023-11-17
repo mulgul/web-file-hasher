@@ -15,6 +15,7 @@ md-5 = "0.10.6"
 blake2 = "0.10.6"
 base64ct = { version="1.6.0", features=["alloc"]}
 ripemd = "0.1.3"
+tiger = "0.2.1"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3"

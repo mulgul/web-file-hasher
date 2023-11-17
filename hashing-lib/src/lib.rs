@@ -6,12 +6,14 @@ use md5::Md5;
 use ripemd::{Ripemd160, Ripemd320};
 use sha2::{Digest, Sha256, Sha384, Sha512};
 use sha3::{Sha3_256, Sha3_512};
+use tiger::Tiger;
 
 #[wasm_bindgen]
 pub fn hasher(hash_type: &str, data: &str) -> Result<String, String> {
     return match hash_type {
         "blake2s256" => Ok(blake2s256(data)),
         "blake2b512" => Ok(blake2b512(data)),
+        "md5" => Ok(md5(data)),
         "ripemd160" => Ok(ripemd160(data)),
         "ripemd320" => Ok(ripemd320(data)),
         "sha256" => Ok(sha256(data)),
@@ -19,7 +21,7 @@ pub fn hasher(hash_type: &str, data: &str) -> Result<String, String> {
         "sha384" => Ok(sha384(data)),
         "sha3_256" => Ok(sha3_256(data)),
         "sha3_512" => Ok(sha3_512(data)),
-        "md5" => Ok(md5(data)),
+        "tiger" => Ok(tiger(data)),
         _ => Err("Hash Type Not Found".to_string()),
     };
 }
@@ -114,6 +116,15 @@ fn sha3_512(data: &str) -> String {
     base64_hash
 }
 
+fn tiger(data: &str) -> String {
+    let mut hasher = Tiger::new();
+    hasher.update(data);
+    let hash = hasher.finalize();
+    let base64_hash = Base64::encode_string(&hash);
+
+    base64_hash
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -181,5 +192,11 @@ mod tests {
             "OwouhB5YnPWDY0pd0mXStdSXxMxEskHjTg9i0D6YwbnccpcLm8IOtQ==",
             result
         );
+    }
+
+    #[test]
+    fn test_tiger() {
+        let result = tiger("test");
+        assert_eq!("erOD/CnYH40NaOh8abrl8fGCZtcwxIsd", result);
     }
 }
