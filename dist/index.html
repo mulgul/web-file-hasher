@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">
+        hello!!
+    </button>
+    <script type="module">
+        import init, { hasher } from './hashing_lib.js';
+
+        const clickHandler = () => {
+            console.log('hello');
+        }
+        const btn = document.getElementById('button');
+        btn.addEventListener('click', clickHandler, false);
+
+        async function run() {
+            await init();
+
+            // And afterwards we can use all the functionality defined in wasm.
+            const a = hasher('sha256', 'test');
+            console.log(a);
+        }
+        run()
+    </script>
+</body>
+</html>
