@@ -1,0 +1,28 @@
+{
+  "name": "web-file-hasher",
+  "version": "1.0.0",
+  "description": "This focuses on giving a UI to hash files using wasm.",
+  "private": true,
+  "scripts": {
+    "start": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mulgul/web-file-hasher.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mulgul/web-file-hasher/issues"
+  },
+  "homepage": "https://github.com/mulgul/web-file-hasher#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "webpack": "^5.4.0",
+    "webpack-cli": "^4.2.0"
+  },
+  "packageManager": "yarn@4.0.2"
+}
