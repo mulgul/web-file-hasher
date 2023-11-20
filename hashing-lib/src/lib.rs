@@ -26,6 +26,25 @@ pub fn hasher(hash_type: &str, data: &str) -> Result<String, String> {
     };
 }
 
+#[wasm_bindgen]
+pub fn hash_types() -> Vec<String> {
+    let types_vec = vec![
+        "blake2s256",
+        "blake2b512",
+        "md5",
+        "ripemd160",
+        "ripemd320",
+        "sha256",
+        "sha512",
+        "sha384",
+        "sha3_256",
+        "sha3_512",
+        "tiger",
+    ];
+
+    types_vec.into_iter().map(|v| v.to_string()).collect()
+}
+
 fn blake2s256(data: &str) -> String {
     let mut hasher = Blake2s256::new();
     hasher.update(data);
