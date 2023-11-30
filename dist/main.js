@@ -5,12 +5,13 @@ async function run() {
     await init();
 
     const files = [];
+    let hashType = '';
 
     addDragAndDrop(files);
-    addDropDown();
+    addDropDown(hashType);
 }
 
-const convertFileSize = (bytes, si = false, dp = 1) => {
+function convertFileSize(bytes, si = false, dp = 1) {
 	const thresh = si ? 1000 : 1024;
 
 	if (Math.abs(bytes) < thresh) {
@@ -36,8 +37,74 @@ const convertFileSize = (bytes, si = false, dp = 1) => {
 
 function addDropDown() {
     const hashingTypes = hash_types();
+    const dropContainer = document.createElement('div');
+
+    const input = createInput();
+    const dropdown = showDropdown(hashingTypes);
+
+    dropContainer.appendChild(input);
+    dropContainer.appendChild(dropdown);
+    const dropDiv = document.getElementById('dropdown-parent');
+    dropDiv.appendChild(dropContainer);
 
     console.log(hashingTypes);
+}
+
+function createInput() {
+    const input = document.createElement('div');
+    input.classList ='input';
+    input.addEventListener('click', toggleDropdown);
+
+    const inputPlaceholder = document.createElement("div");
+    inputPlaceholder.classList = "input__placeholder";
+  
+    const placeholder = document.createElement("p");
+    placeholder.textContent = "Select Hash";
+    placeholder.classList.add('placeholder')
+  
+    // Appends the placeholder and chevron (stored in assets.js)
+    const chevronPng = document.createElement('img');
+    chevronPng.setAttribute('src', 'chevron.png');
+    chevronPng.setAttribute('id', 'chevron');
+    inputPlaceholder.appendChild(placeholder);
+    inputPlaceholder.appendChild(chevronPng);
+    input.appendChild(inputPlaceholder);
+  
+    return input;
+}
+
+function showDropdown(hashingTypes) {
+    const structure = document.createElement("div");
+    structure.classList.add("structure", "hide");
+  
+    hashingTypes.forEach(hash => {
+        const option = document.createElement("div");
+        option.addEventListener("click", () => selectOption(hash));
+        option.setAttribute("id", "option");
+
+        const hashType = document.createElement("p");
+        hashType.setAttribute("id", "hashName")
+        hashType.textContent = hash;
+
+        option.appendChild(hashType);
+        structure.appendChild(option);
+    });
+    return structure;
+};
+
+function toggleDropdown() {
+    const dropdown = document.querySelector(".structure");
+    dropdown.classList.toggle("hide");
+  
+    const input = document.querySelector(".input");
+    input.classList.toggle("input__active");
+};
+
+function selectOption(hash) {
+    const text = document.querySelector('.placeholder');
+    text.textContent = hash;
+    text.classList.add('input__selected');
+    toggleDropdown();
 }
 
 function addDragAndDrop(f) {
@@ -108,9 +175,9 @@ function addFileToList(file) {
     fileNameContainer.appendChild(checkBox);
     fileNameContainer.appendChild(filePng);
     fileNameContainer.appendChild(fileName);
-    // newLI.appendChild(checkBox);
     newLI.appendChild(fileNameContainer);
     newLI.appendChild(fileSize);
 }
+
 
 run();
