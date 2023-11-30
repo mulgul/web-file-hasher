@@ -1,11 +1,13 @@
 import init, { hasher, hash_types } from './hashing_lib.js';
 
 async function run() {
+    // Initialize wasm
     await init();
 
-    addDragAndDrop();
+    const files = [];
+
+    addDragAndDrop(files);
     addDropDown();
-    //implement dropdown and hasher
 }
 
 function addDropDown() {
@@ -14,7 +16,7 @@ function addDropDown() {
     console.log(hashingTypes);
 }
 
-function addDragAndDrop() {
+function addDragAndDrop(f) {
     let dropArea = document.getElementById('drop-area');
 
     function preventDefaults (e) {
@@ -33,13 +35,11 @@ function addDragAndDrop() {
     function handleDrop(e) {
         let dt = e.dataTransfer
         let files = dt.files
-      
-        handleFiles(files)
-    }
 
-    function handleFiles() {
-        // TODO Need to handle files once they are dropped;
-        console.log('TODO');
+        for(const file of files) {
+            f.push(file)
+            addFileToList(file.name)
+        }
     }
 
     ;['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
@@ -56,4 +56,13 @@ function addDragAndDrop() {
 
     dropArea.addEventListener('drop', handleDrop, false)
 }
+
+function addFileToList(fileName) {
+    const item = document.getElementById('listFiles');
+    const newLI = document.createElement('div');
+    newLI.setAttribute('id', 'filename-div')
+    newLI.textContent = fileName;
+    item.appendChild(newLI);
+}
+
 run();

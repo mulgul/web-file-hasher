@@ -1,3 +1,11 @@
+/* Body of the page */
+.body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Drag and Drop */
 #drop-area {
     border: 2px dashed #ccc;
     border-radius: 20px;
@@ -6,24 +14,30 @@
     margin: 100px auto;
     padding: 20px;
 }
+
 #drop-area.highlight {
     border-color: purple;
 }
+
 p {
     margin-top: 0;
 }
+
 .my-form {
     margin-bottom: 10px;
 }
+
 #gallery {
     margin-top: 10px;
 }
+
 #gallery img {
     width: 150px;
     margin-bottom: 10px;
     margin-right: 10px;
     vertical-align: middle;
 }
+
 .button {
     display: inline-block;
     padding: 10px;
@@ -32,9 +46,60 @@ p {
     border-radius: 5px;
     border: 1px solid #ccc;
 }
+
 .button:hover {
     background: #ddd;
 }
-#fileElem {
+
+#file-elem {
     display: none;
+}
+
+/* Header */
+.header {
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    overflow: auto;
+    text-align: center;
+    margin-bottom: 5px;
+    position: fixed;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
+}
+
+.header-container {
+    display: block;
+    margin: 1rem auto;
+    width: 80%;
+    max-width: 1200px;
+}
+
+.logout {
+    cursor: pointer;
+}
+
+.nav-list {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+a.nav-a:not(:last-child) { 
+    margin-right: 20px;  
+}
+
+.nav-li {
+    color:rgb(159, 145, 145)
+}
+
+.name {
+    color:rgb(41, 40, 40);
+    margin: 0 0 0;
+}
+
+@media screen and (min-width: 600px) {
+    .header-container {
+        justify-content: center;
+        display: flex;
+    }
 }

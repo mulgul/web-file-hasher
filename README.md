@@ -2,6 +2,13 @@
 
 This focuses on giving a UI to hash files using wasm.
 
+### Prerequisites
+
+Rust - Cargo
+
+```
+```
+
 ### To Run
 
 ```
