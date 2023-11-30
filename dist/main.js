@@ -160,24 +160,38 @@ function addDragAndDrop(f) {
 function addFileToList(file) {
     const item = document.getElementById('listFiles');
     const newLI = document.createElement('div');
-    newLI.setAttribute('id', 'filename-div');
     const fileNameContainer = document.createElement('div');
-    fileNameContainer.setAttribute('id', 'fileNameContainer');
     const fileName = document.createElement('p');
-    fileName.textContent = file.name;
     const fileSize = document.createElement('p');
-    fileSize.textContent = convertFileSize(file.size, true);
     const checkBox = document.createElement('input');
-    checkBox.setAttribute('type', 'checkbox');
     const filePng = document.createElement('img');
+
+    newLI.setAttribute('id', 'filename-div');
+    fileNameContainer.setAttribute('id', 'fileNameContainer');
+    fileName.textContent = file.name;
+    fileSize.textContent = convertFileSize(file.size, true);
+
+    checkBox.setAttribute('type', 'checkbox');
     filePng.setAttribute('src', 'file-icon.png');
+
     item.appendChild(newLI);
     fileNameContainer.appendChild(checkBox);
     fileNameContainer.appendChild(filePng);
     fileNameContainer.appendChild(fileName);
     newLI.appendChild(fileNameContainer);
     newLI.appendChild(fileSize);
+    hashFile(file);
 }
 
+function hashFile(file) {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+        const base64String = reader.result
+            .replace('data:', '')
+            .replace(/^.+,/, '');
+        console.log(hasher('sha256', base64String));
+    }
+    reader.readAsDataURL(file);
+}
 
 run();
