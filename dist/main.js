@@ -18,6 +18,7 @@ function addDropDown() {
 
 function addDragAndDrop(f) {
     let dropArea = document.getElementById('drop-area');
+    let fileElem = document.getElementById('file-elem');
 
     function preventDefaults (e) {
         e.preventDefault()
@@ -33,11 +34,19 @@ function addDragAndDrop(f) {
     }
 
     function handleDrop(e) {
+        console.log(e);
         let dt = e.dataTransfer
         let files = dt.files
 
         for(const file of files) {
             f.push(file)
+            addFileToList(file.name)
+        }
+    }
+
+    fileElem.onchange = () => {
+        for (const file of fileElem.files) {
+            f.push(file);
             addFileToList(file.name)
         }
     }
