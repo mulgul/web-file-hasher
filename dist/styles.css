@@ -3,17 +3,42 @@
 html,body{
     margin:0;
     padding: 0;
-    position:relative;
+    /* position:relative; */
 }
 
 .body {
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    background-color: #010409;
+    height: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    /* background-color: #010409; */
+    background-color: rgb(245, 245, 245);
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
+    color: rgb(14, 14, 14);
 }
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5vh;
+    height: 5vh;
+    width: 100%;
+}
+
+.title {
+    font-size: 4vh;
+    font-weight: 500;
+}
+
+/* Page Dimessions*/
+.page {
+    margin: 0vw 8.5vw 0vw 8.5vw;
+}
+
 
 /* Drag and Drop */
 #drop-area {
@@ -21,21 +46,69 @@ html,body{
     border-radius: 20px;
     width: 580px;
     font-family: sans-serif;
-    margin: 100px auto;
     padding: 20px;
+    margin-bottom: 2.5vh;
 }
 
 #drop-area.highlight {
     border-color: purple;
 }
 
+.my-form {
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 2.5vh;
+    margin-bottom: 2.5vh;
+}
+
+.button {
+    display: inline-block;
+    padding: 1%;
+    font-size: 2vh;
+    background: linear-gradient(45deg,#2a2640 0%,#544d80 100%);
+    cursor: pointer;
+    border-radius: 5px;
+    color: rgb(245, 245, 245);
+
+}
+
+.button:hover {
+    background: linear-gradient(45deg,#544d80 0%,#2a2640 100%);
+}
+
+#file-elem {
+    display: none;
+}
+
+
+
+/* Move this*/
+#listFiles {
+    border: 2px dashed #ccc;
+    border-radius: 20px;
+    width: 580px;
+    font-family: sans-serif;
+    padding: 20px;
+    margin-bottom: 2.5vh;
+}
+
+#filename-div {
+    margin-bottom: .5vh;
+}
+
+
+
+
+
+
+/* I DON'T KNOW WHAT THIS IS*/
+
 p {
     margin-top: 0;
 }
 
-.my-form {
-    margin-bottom: 10px;
-}
 
 #gallery {
     margin-top: 10px;
@@ -48,62 +121,9 @@ p {
     vertical-align: middle;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px;
-    background: linear-gradient(120deg,#2a2640,#3f3960 60%,#544d80);
-    cursor: pointer;
-    border-radius: 5px;
 
-}
 
-.button:hover {
-    border: 1px solid #ccc;
-}
 
-#file-elem {
-    display: none;
-}
-
-/* Header */
-.header {
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-    overflow: auto;
-    text-align: center;
-    margin-bottom: 5px;
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-}
-
-.header-container {
-    display: block;
-    margin: 1rem auto;
-    width: 80%;
-    max-width: 1200px;
-}
-
-.logout {
-    cursor: pointer;
-}
-
-.nav-list {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-a.nav-a:not(:last-child) { 
-    margin-right: 20px;  
-}
-
-.nav-li {
-    color:rgb(159, 145, 145)
-}
-
-.name {
-    margin: 0 0 0;
-}
 
 @media screen and (min-width: 600px) {
     .header-container {
