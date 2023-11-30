@@ -178,8 +178,8 @@ html,body{
     justify-content: center;
     border: 1.5px solid #cdcfd3;
     border-radius: 3px;
-    height: 3.5vh;
-    width: 10vw;
+    height: 25px;
+    width: 130px;
     /* padding: 0 16px; */
     background-color: white;
 }
