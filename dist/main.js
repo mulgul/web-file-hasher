@@ -94,15 +94,22 @@ function addFileToList(file) {
     const item = document.getElementById('listFiles');
     const newLI = document.createElement('div');
     newLI.setAttribute('id', 'filename-div');
-    // const fileNameContainer = document.createElement('div');
-    // fileNameContainer.setAttribute('id', 'fileNameContainer');
+    const fileNameContainer = document.createElement('div');
+    fileNameContainer.setAttribute('id', 'fileNameContainer');
     const fileName = document.createElement('p');
     fileName.textContent = file.name;
     const fileSize = document.createElement('p');
     fileSize.textContent = convertFileSize(file.size, true);
+    const checkBox = document.createElement('input');
+    checkBox.setAttribute('type', 'checkbox');
+    const filePng = document.createElement('img');
+    filePng.setAttribute('src', 'file-icon.png');
     item.appendChild(newLI);
-    // fileNameContainer.appendChild(fileName);
-    newLI.appendChild(fileName);
+    fileNameContainer.appendChild(checkBox);
+    fileNameContainer.appendChild(filePng);
+    fileNameContainer.appendChild(fileName);
+    // newLI.appendChild(checkBox);
+    newLI.appendChild(fileNameContainer);
     newLI.appendChild(fileSize);
 }
 

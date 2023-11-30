@@ -106,10 +106,29 @@ html,body{
     height: 4vh;
 }
 
+#fileNameContainer {
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+}
+
+#fileNameContainer input {
+    font-size: 2vh;
+    margin-right: .5vw;
+}
+
+#fileNameContainer img {
+    height: 2vh;
+    margin-right: .4vw;
+}
+
+#fileNameContainer p {
+    font-size: 2vh;
+}
+
 #filename-div p {
     font-size: 2vh;
-    margin-left: 2vw;
-    margin-right: 2vw;;
+    margin-right: 2vw;
 }
 
 
