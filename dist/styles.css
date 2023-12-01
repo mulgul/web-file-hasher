@@ -151,7 +151,7 @@ purple: #C822FF;
 
 /* Listed Files */
 #listFiles {
-    width: 50vw;
+    width: 630px;
     font-family: sans-serif;
     margin-bottom: 2.5vh;
 }
@@ -261,7 +261,7 @@ purple: #C822FF;
     flex-direction: column;
     justify-content: flex-start;
     height: 20vh;
-    width: 130px;
+    width: 133px;
     overflow: scroll;
     overflow-x: hidden;
     background-color: white;
@@ -278,9 +278,11 @@ purple: #C822FF;
 }
   
 .structure > div:hover {
-    background-color: #003bde;
+    background-color: #1A6DFF;
     cursor: pointer;
 }
+/* blue: #1A6DFF;
+purple: #C822FF; */
 
 .structure > div:hover > #hashName {
     color: white;
@@ -311,14 +313,39 @@ purple: #C822FF;
 #returnFeild {
     border: 1px solid #ccc;
     border-radius: 3px;
-    width: 100%;
-    height: 19vh;
+    width: 630px;
+    height: 100px;
     font-family: sans-serif;
     margin-bottom: 2.5vh;
     z-index: -1;
 }
 
-#copy-button {
-    border-radius: 3px;
-    /* background-color: red; */
+.copy-button {
+    width: 95px;
+    height: 27px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #6DC7FF;
+    text-align: center;
+    line-height: 27px;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(to right, #6DC7FF, #C822FF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+
+/*
+light blue: #6DC7FF;
+light purple: #E6ABFF;
+blue: #1A6DFF;
+purple: #C822FF;
+*/
+
+
+.copy-button:hover {
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
 }
