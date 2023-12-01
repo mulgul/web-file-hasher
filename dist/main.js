@@ -5,11 +5,36 @@ async function run() {
 	await init();
 
 	const files = [];
-	let selectedHashType = '';
 
 	addDragAndDrop(files);
-	addDropDown(selectedHashType);
-	// printHashedFile();
+	addDropDown();
+
+	const hashBtn = document.getElementById('hash-btn');
+	hashBtn.addEventListener('click', () => {
+		let readers = [];
+
+		if (!files.length) {
+			// TODO: Handle the error.
+			// This should print some read text saying
+			// A file must be uploaded before hashing.
+		}
+		for (let i = 0; i < files.length; i++) {
+			const text = document.querySelector('.placeholder');
+			readers.push(readFileAsUrlToBase64(files[i], text.textContent));
+		}
+		Promise.all(readers).then((values) => {
+			printHashedFile(values.join());
+		});
+	});
+
+	// const copyButton = document.getElementById('copy-button');
+
+	// copyButton.onclick = function () {
+	// 	const copyText = document.getElementById('returnFeild');
+	// 	copyText.select();
+	// 	navigator.clipboard.writeText(copyText.value);
+	// 	alert('Copied the text: ' + copyText.value);
+	// };
 }
 
 function convertFileSize(bytes, si = false, dp = 1) {
@@ -36,19 +61,17 @@ function convertFileSize(bytes, si = false, dp = 1) {
 	return bytes.toFixed(dp) + ' ' + units[u];
 }
 
-function addDropDown(selectedHashType) {
+function addDropDown() {
 	const hashingTypes = hash_types();
 	const dropContainer = document.createElement('div');
 
 	const input = createInput();
-	const dropdown = showDropdown(hashingTypes, selectedHashType);
+	const dropdown = showDropdown(hashingTypes);
 
 	dropContainer.appendChild(input);
 	dropContainer.appendChild(dropdown);
 	const dropDiv = document.getElementById('dropdown-parent');
 	dropDiv.appendChild(dropContainer);
-
-	console.log(hashingTypes);
 }
 
 function createInput() {
@@ -74,15 +97,13 @@ function createInput() {
 	return input;
 }
 
-function showDropdown(hashingTypes, selectedHashType) {
+function showDropdown(hashingTypes) {
 	const structure = document.createElement('div');
 	structure.classList.add('structure', 'hide');
 
 	hashingTypes.forEach((hash) => {
 		const option = document.createElement('div');
-		option.addEventListener('click', () =>
-			selectOption(hash, selectedHashType)
-		);
+		option.addEventListener('click', () => selectOption(hash));
 		option.setAttribute('id', 'option');
 
 		const hashType = document.createElement('p');
@@ -103,11 +124,9 @@ function toggleDropdown() {
 	input.classList.toggle('input__active');
 }
 
-function selectOption(hash, selectedHashType) {
+function selectOption(hash) {
 	const text = document.querySelector('.placeholder');
 	text.textContent = hash;
-	selectedHashType = hash;
-	console.log(selectedHashType);
 	text.classList.add('input__selected');
 	toggleDropdown();
 }
@@ -121,11 +140,11 @@ function addDragAndDrop(f) {
 		e.stopPropagation();
 	}
 
-	function highlight(e) {
+	function highlight() {
 		dropArea.classList.add('highlight');
 	}
 
-	function unhighlight(e) {
+	function unhighlight() {
 		dropArea.classList.remove('highlight');
 	}
 
@@ -182,34 +201,29 @@ function addFileToList(file) {
 	fileNameContainer.appendChild(fileName);
 	newLI.appendChild(fileNameContainer);
 	newLI.appendChild(fileSize);
-	// hashFile(file, selectedHashType);
 }
 
-function hashFile(file, selectedHashType) {
-	const reader = new FileReader();
-	reader.onloadend = () => {
-		const base64String = reader.result.replace('data:', '').replace(/^.+,/, '');
-		console.log('selectedHashType', selectedHashType);
-		console.log('base64String', base64String);
-		const hashedFile = hasher(selectedHashType, base64String);
-		printHashedFile(hashedFile);
-	};
-	reader.readAsDataURL(file);
+function readFileAsUrlToBase64(file, selectedHashType) {
+	return new Promise(function (resolve, reject) {
+		let fr = new FileReader();
+
+		fr.onloadend = function () {
+			const base64String = fr.result.replace('data:', '').replace(/^.+,/, '');
+			const hashedFile = hasher(selectedHashType, base64String);
+			resolve(hashedFile);
+		};
+
+		fr.onerror = function () {
+			reject(fr);
+		};
+
+		fr.readAsDataURL(file);
+	});
 }
 
 function printHashedFile(hashedFile) {
-	const hashedFileContainer = document.getElementById('hashed-file-parent');
 	const returnField = document.getElementById('returnFeild');
-	const copyButton = document.getElementById('copy-button');
-
-	returnField.setAttribute('value', hashedFile);
-
-	copyButton.onclick = function () {
-		const copyText = document.getElementById('returnFeild');
-		copyText.select();
-		navigator.clipboard.writeText(copyText.value);
-		alert('Copied the text: ' + copyText.value);
-	};
+	returnField.value = hashedFile;
 }
 
 run();

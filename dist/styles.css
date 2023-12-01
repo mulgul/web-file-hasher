@@ -194,6 +194,15 @@ purple: #C822FF;
 
 /* Dropdown */
 
+#drop-and-hash-parent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 8vh;
+    width: 660px;
+    z-index: 5; 
+}
+
 #dropdown-parent {
     display: flex;
     justify-content: flex-start;
@@ -201,6 +210,12 @@ purple: #C822FF;
     height: 8vh;
     width: 660px;
     z-index: 5;
+}
+
+/* Hash btn */
+
+#hash-btn {
+    cursor: pointer;
 }
 
 /* Input styling */
