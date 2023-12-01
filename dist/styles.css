@@ -331,7 +331,8 @@ html,body{
 }
 
 #chevron {
-    height: 20px;
+    height: 16px;
+    margin-right: 5px;
 }
   
 .input__selected {
