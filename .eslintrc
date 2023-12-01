@@ -1,0 +1,12 @@
+{
+    "root": true,
+    "plugins": [
+      "prettier"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "prettier",
+		  "plugin:prettier/recommended"
+    ],
+    "ignorePatterns": ["dist/hashing_lib", "hashing_lib"]
+}
