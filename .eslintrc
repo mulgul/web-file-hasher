@@ -1,5 +1,9 @@
 {
     "root": true,
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "requireConfigFile": false
+    },
     "plugins": [
       "prettier"
     ],
@@ -8,5 +12,5 @@
       "prettier",
 		  "plugin:prettier/recommended"
     ],
-    "ignorePatterns": ["dist/hashing_lib", "hashing_lib"]
+    "ignorePatterns": ["dist/hashing_lib.js", "hashing_lib"]
 }
