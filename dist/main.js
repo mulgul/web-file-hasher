@@ -25,14 +25,16 @@ async function run() {
 			// This should print some read text saying
 			// A file must be uploaded before hashing.
 		}
-        const selectedFiles = getSelectedFileTypes();
-        const sFiles = files.filter((file) => selectedFiles.includes(file.name));
+		const selectedHash = document.querySelector('.placeholder');
+		const selectedFiles = getSelectedFileTypes();
+		const sFiles = files.filter((file) => selectedFiles.includes(file.name));
 		for (let i = 0; i < sFiles.length; i++) {
-			const text = document.querySelector('.placeholder');
-			readers.push(readFileAsUrlToBase64(sFiles[i], text.textContent));
+			readers.push(readFileAsUrlToBase64(sFiles[i]));
 		}
 		Promise.all(readers).then((values) => {
-			printHashedFile(values.join());
+			const concated = values.join('');
+			const hash = hasher(selectedHash.textContent, concated);
+			printHashedFile(hash);
 		});
 	});
 
@@ -48,10 +50,10 @@ async function run() {
 }
 
 function getSelectedFileTypes() {
-    const files = document.getElementsByClassName('filename-div');
-    return Array.from(files)
-        .filter((node) => node.firstChild.childNodes[0].checked)
-        .map((node) => node.firstChild.innerText);
+	const files = document.getElementsByClassName('filename-div');
+	return Array.from(files)
+		.filter((node) => node.firstChild.childNodes[0].checked)
+		.map((node) => node.firstChild.innerText);
 }
 
 function convertFileSize(bytes, si = false, dp = 1) {
@@ -226,17 +228,16 @@ function addFileToList(file) {
 	newLI.appendChild(fileNameContainerLeft);
 	newLI.appendChild(fileNameContainerRight);
 
-    checkBox.checked = true;
+	checkBox.checked = true;
 }
 
-function readFileAsUrlToBase64(file, selectedHashType) {
+function readFileAsUrlToBase64(file) {
 	return new Promise(function (resolve, reject) {
 		let fr = new FileReader();
 
 		fr.onloadend = function () {
 			const base64String = fr.result.replace('data:', '').replace(/^.+,/, '');
-			const hashedFile = hasher(selectedHashType, base64String);
-			resolve(hashedFile);
+			resolve(base64String);
 		};
 
 		fr.onerror = function () {
