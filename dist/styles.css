@@ -131,10 +131,10 @@ html,body{
 }
 
 /*
-light blue: #6DC7FF
-light purple: #E6ABFF
-blue: #1A6DFF
-purple: #C822FF
+light blue: #6DC7FF;
+light purple: #E6ABFF;
+blue: #1A6DFF;
+purple: #C822FF;
 */
 
 
@@ -218,7 +218,7 @@ purple: #C822FF
 
   
 .input__active {
-    border-color: #003bde;
+    border-color: #6DC7FF;
     border-bottom-left-radius: 0px !important;
     border-bottom-right-radius: 0px !important;
 }

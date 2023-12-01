@@ -12,5 +12,8 @@
       "prettier",
 		  "plugin:prettier/recommended"
     ],
+    "env": {
+      "browser": true
+    },
     "ignorePatterns": ["dist/hashing_lib.js", "hashing_lib"]
 }
