@@ -73,12 +73,15 @@ html,body{
 }
 
 
-/* Drag and Drop */
+/* Drag and Drop Files */
 #dropArea {
-    border: 1px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.7px dashed #b0b0b0;
     border-radius: 3px;
-    width: 50vw;
-    height: 19vh;
+    width: 630px;
+    height: 250px;
     font-family: sans-serif;
     margin-bottom: 2.5vh;
 }
@@ -88,28 +91,56 @@ html,body{
 }
 
 .myForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 10px;
 }
 
+#cloud-icon {
+    height: 64px;
+}
+
 #formName {
-    font-size: 2.5vh;
-    margin: 2vw;
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #b8b8b8;
+}
+#sub-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #b8b8b8;
 }
 
 .button {
-    display: inline-block;
-    padding: 1%;
-    font-size: 2vh;
-    background: linear-gradient(45deg,#2a2640 0%,#544d80 100%);
+    width: 95px;
+    height: 27px;
+    padding: 2px;
+    font-size: 12px;
     cursor: pointer;
     border-radius: 5px;
-    color: rgb(245, 245, 245);
-    margin-left: 2vw;
-
+    color: #6DC7FF;
+    text-align: center;
+    line-height: 27px;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(to right, #6DC7FF, #C822FF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
 }
 
+/*
+light blue: #6DC7FF
+light purple: #E6ABFF
+blue: #1A6DFF
+purple: #C822FF
+*/
+
+
 .button:hover {
-    background: linear-gradient(45deg,#544d80 0%,#2a2640 100%);
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
 }
 
 #fileElem {
@@ -167,8 +198,9 @@ html,body{
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 20vh;
+    height: 8vh;
     width: 50vw;
+    z-index: 5;
 }
 
 /* Input styling */
@@ -180,7 +212,6 @@ html,body{
     border-radius: 3px;
     height: 25px;
     width: 130px;
-    /* padding: 0 16px; */
     background-color: white;
 }
 
@@ -236,6 +267,7 @@ html,body{
     background-color: white;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
     padding: 10px 0;
+    z-index: 5;
 }
   
 .structure > div {
@@ -269,3 +301,24 @@ html,body{
     display: none;
 }
 
+/* Hashed File Text Area*/
+
+#hashed-file-parent {
+    width: 50vw;
+    height: 19vh;
+}
+
+#returnFeild {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    height: 19vh;
+    font-family: sans-serif;
+    margin-bottom: 2.5vh;
+    z-index: -1;
+}
+
+#copy-button {
+    border-radius: 3px;
+    /* background-color: red; */
+}

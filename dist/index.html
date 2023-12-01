@@ -18,14 +18,19 @@
     <div class="page">
         <div id="dropArea">
             <form class="myForm">
-                <p id="formName">Upload Files or Drag and Drop</p>
+                <img src="upload-cloud.png" id="cloud-icon">
+                <p id="formName">Drag&Drop files here</p>
+                <p id="sub-text">or</p>
                 <input type="file" id="fileElem" multiple accept="image/*">
-                <label class="button" for="fileElem">Select Files</label>
+                <label class="button" for="fileElem">Browse Files</label>
             </form>
         </div>
         <div id="listFiles"></div>
         <div id="dropdown-parent"></div>
-        <div id="hashed-file-parent"></div>
+        <div id="hashed-file-parent">
+            <textarea name="" id="returnFeild" placeholder="Output" readonly cols="30" rows="10"></textarea>
+            <label class="button" for="fileElem">Copy</label>
+        </div>
     </div>
     <script src="main.js" type="module"></script>
 </body>

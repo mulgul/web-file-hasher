@@ -9,6 +9,7 @@ async function run() {
 
     addDragAndDrop(files);
     addDropDown(selectedHashType);
+    // printHashedFile();
 }
 
 function convertFileSize(bytes, si = false, dp = 1) {
@@ -194,20 +195,17 @@ function hashFile(file, selectedHashType) {
         console.log('selectedHashType' ,selectedHashType)
         console.log('base64String' ,base64String)
         const hashedFile = hasher(selectedHashType, base64String);
-        returnHashedFile(hashedFile);
+        printHashedFile(hashedFile);
     }
     reader.readAsDataURL(file);
 }
 
-function returnHashedFile(hashedFile) {
+function printHashedFile(hashedFile) {
     const hashedFileContainer = document.getElementById("hashed-file-parent");
-    const returnField = document.createElement('input');
-    const copyButton = document.createElement('button');
+    const returnField = document.getElementById('returnFeild');
+    const copyButton = document.getElementById('copy-button');
 
-    returnField.setAttribute('type', 'text');
     returnField.setAttribute('value', hashedFile);
-    returnField.setAttribute('id', 'returnFeild');
-    hashedFileContainer.appendChild(returnField);
 
     copyButton.onclick = function() {
         const copyText = document.getElementById('returnFeild');
