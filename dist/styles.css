@@ -230,7 +230,7 @@ html,body{
     flex-direction: column;
     justify-content: flex-start;
     height: 20vh;
-    width: 10vw;
+    width: 130px;
     overflow: scroll;
     overflow-x: hidden;
     background-color: white;

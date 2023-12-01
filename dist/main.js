@@ -5,10 +5,10 @@ async function run() {
     await init();
 
     const files = [];
-    let hashType = '';
+    let selectedHashType = '';
 
     addDragAndDrop(files);
-    addDropDown(hashType);
+    addDropDown(selectedHashType);
 }
 
 function convertFileSize(bytes, si = false, dp = 1) {
@@ -35,12 +35,12 @@ function convertFileSize(bytes, si = false, dp = 1) {
 	return bytes.toFixed(dp) + ' ' + units[u];
 };
 
-function addDropDown() {
+function addDropDown(selectedHashType) {
     const hashingTypes = hash_types();
     const dropContainer = document.createElement('div');
 
     const input = createInput();
-    const dropdown = showDropdown(hashingTypes);
+    const dropdown = showDropdown(hashingTypes, selectedHashType);
 
     dropContainer.appendChild(input);
     dropContainer.appendChild(dropdown);
@@ -73,13 +73,13 @@ function createInput() {
     return input;
 }
 
-function showDropdown(hashingTypes) {
+function showDropdown(hashingTypes, selectedHashType) {
     const structure = document.createElement("div");
     structure.classList.add("structure", "hide");
   
     hashingTypes.forEach(hash => {
         const option = document.createElement("div");
-        option.addEventListener("click", () => selectOption(hash));
+        option.addEventListener("click", () => selectOption(hash, selectedHashType));
         option.setAttribute("id", "option");
 
         const hashType = document.createElement("p");
@@ -100,9 +100,11 @@ function toggleDropdown() {
     input.classList.toggle("input__active");
 };
 
-function selectOption(hash) {
+function selectOption(hash, selectedHashType) {
     const text = document.querySelector('.placeholder');
     text.textContent = hash;
+    selectedHashType = hash;
+    console.log(selectedHashType)
     text.classList.add('input__selected');
     toggleDropdown();
 }
@@ -180,18 +182,39 @@ function addFileToList(file) {
     fileNameContainer.appendChild(fileName);
     newLI.appendChild(fileNameContainer);
     newLI.appendChild(fileSize);
-    hashFile(file);
+    // hashFile(file, selectedHashType);
 }
 
-function hashFile(file) {
+function hashFile(file, selectedHashType) {
     const reader = new FileReader();
     reader.onloadend = () => {
         const base64String = reader.result
             .replace('data:', '')
             .replace(/^.+,/, '');
-        console.log(hasher('sha256', base64String));
+        console.log('selectedHashType' ,selectedHashType)
+        console.log('base64String' ,base64String)
+        const hashedFile = hasher(selectedHashType, base64String);
+        returnHashedFile(hashedFile);
     }
     reader.readAsDataURL(file);
+}
+
+function returnHashedFile(hashedFile) {
+    const hashedFileContainer = document.getElementById("hashed-file-parent");
+    const returnField = document.createElement('input');
+    const copyButton = document.createElement('button');
+
+    returnField.setAttribute('type', 'text');
+    returnField.setAttribute('value', hashedFile);
+    returnField.setAttribute('id', 'returnFeild');
+    hashedFileContainer.appendChild(returnField);
+
+    copyButton.onclick = function() {
+        const copyText = document.getElementById('returnFeild');
+        copyText.select();
+        navigator.clipboard.writeText(copyText.value);
+        alert('Copied the text: ' + copyText.value)
+    }
 }
 
 run();
