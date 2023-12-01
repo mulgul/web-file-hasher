@@ -180,7 +180,7 @@ html,body{
     margin-bottom: 2.5vh;
 }
 
-#filename-div {
+.filename-div {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -230,7 +230,7 @@ html,body{
     font-size: 2vh;
 }
 
-#filename-div p {
+.filename-div p {
     font-size: 2vh;
 }
 

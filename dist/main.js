@@ -45,6 +45,11 @@ async function run() {
 	});
 }
 
+function getSelectedFiles() {
+    const files = document.getElementsByClassName('filename-div');
+    console.log(files);
+}
+
 function convertFileSize(bytes, si = false, dp = 1) {
 	const thresh = si ? 1000 : 1024;
 
@@ -196,7 +201,7 @@ function addFileToList(file) {
 	const filePng = document.createElement('img');
 	const trashPng = document.createElement('img');
 
-	newLI.setAttribute('id', 'filename-div');
+	newLI.setAttribute('class', 'filename-div');
 	fileNameContainerLeft.setAttribute('id', 'fileNameContainerLeft');
 	fileNameContainerRight.setAttribute('id', 'fileNameContainerRight');
 	fileSize.setAttribute('id', 'file-size');
@@ -216,6 +221,8 @@ function addFileToList(file) {
 	fileNameContainerRight.appendChild(trashPng);
 	newLI.appendChild(fileNameContainerLeft);
 	newLI.appendChild(fileNameContainerRight);
+
+    checkBox.checked = true;
 }
 
 function readFileAsUrlToBase64(file, selectedHashType) {
