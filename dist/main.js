@@ -27,14 +27,16 @@ async function run() {
 		});
 	});
 
-	// const copyButton = document.getElementById('copy-button');
+	const copyButton = document.getElementById('copy-btn');
 
-	// copyButton.onclick = function () {
-	// 	const copyText = document.getElementById('returnFeild');
-	// 	copyText.select();
-	// 	navigator.clipboard.writeText(copyText.value);
-	// 	alert('Copied the text: ' + copyText.value);
-	// };
+	copyButton.addEventListener('click', () => {
+		const copyText = document.getElementById('returnFeild');
+		copyText.select();
+		navigator.clipboard.writeText(copyText.value).then(() => {
+			// TODO: This should be a `Copied` message that shows up on the text area. then dissapears after 2 seconds.
+			alert('Copied the text: ' + copyText.value);
+		});
+	});
 }
 
 function convertFileSize(bytes, si = false, dp = 1) {
