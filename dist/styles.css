@@ -34,7 +34,9 @@
 /*
 SITE COLORS
 
-white: #F5F5F5
+white: #F5F5F5;
+grey: #b8b8b8;
+darker grey: #b0b0b0;
 light blue: #6DC7FF;
 light purple: #E6ABFF;
 blue: #1A6DFF;
@@ -70,8 +72,13 @@ html,body{
     width: 100%;
 }
 
+#hasher-icon {
+    height: 25px;
+    margin-right: 5px;
+}
+
 .title {
-    font-size: 4vh;
+    font-size: 28px;
     font-weight: 400;
 }
 
@@ -292,7 +299,7 @@ html,body{
 }
   
 .placeholder {
-    color: #9b9fa8;
+    color: #b8b8b8;
     font-size: 14px;
     margin-left: .5vw;
 }
@@ -374,6 +381,12 @@ html,body{
     font-family: sans-serif;
     margin-bottom: 2.5vh;
     z-index: -1;
+}
+
+::placeholder {
+    color: #b8b8b8;
+    font-size: 14px;
+    margin-left: .5vw;
 }
 
 .copy-button {
