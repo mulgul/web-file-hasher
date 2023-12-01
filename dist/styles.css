@@ -1,41 +1,11 @@
 /* Body of the page */
 
-html,body{
-    margin:0;
-    padding: 0;
-    position:relative;
-}
+/* I DON'T KNOW WHAT THIS IS*/
 
-.body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    background-color: #010409;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: white;
-}
-
-/* Drag and Drop */
-#drop-area {
-    border: 2px dashed #ccc;
-    border-radius: 20px;
-    width: 580px;
-    font-family: sans-serif;
-    margin: 100px auto;
-    padding: 20px;
-}
-
-#drop-area.highlight {
-    border-color: purple;
-}
-
-p {
+/* p {
     margin-top: 0;
 }
 
-.my-form {
-    margin-bottom: 10px;
-}
 
 #gallery {
     margin-top: 10px;
@@ -48,66 +18,307 @@ p {
     vertical-align: middle;
 }
 
-.button {
-    display: inline-block;
-    padding: 10px;
-    background: linear-gradient(120deg,#2a2640,#3f3960 60%,#544d80);
-    cursor: pointer;
-    border-radius: 5px;
-
-}
-
-.button:hover {
-    border: 1px solid #ccc;
-}
-
-#file-elem {
-    display: none;
-}
-
-/* Header */
-.header {
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-    overflow: auto;
-    text-align: center;
-    margin-bottom: 5px;
-    position: fixed;
-    width: 100%;
-    z-index: 100;
-}
-
-.header-container {
-    display: block;
-    margin: 1rem auto;
-    width: 80%;
-    max-width: 1200px;
-}
-
-.logout {
-    cursor: pointer;
-}
-
-.nav-list {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-}
-
-a.nav-a:not(:last-child) { 
-    margin-right: 20px;  
-}
-
-.nav-li {
-    color:rgb(159, 145, 145)
-}
-
-.name {
-    margin: 0 0 0;
-}
 
 @media screen and (min-width: 600px) {
     .header-container {
         justify-content: center;
         display: flex;
     }
+} */
+
+/* I DON'T KNOW WHAT THIS IS*/
+
+
+
+html,body{
+    margin:0;
+    padding: 0;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+    overflow: scroll;
+    background-color: rgb(245, 245, 245);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: rgb(14, 14, 14);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5vh;
+    height: 10vh;
+    width: 100%;
+}
+
+.title {
+    font-size: 4vh;
+    font-weight: 400;
+}
+
+/* Page Dimessions*/
+.page {
+    margin: 0vw 8.5vw 0vw 8.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* Drag and Drop Files */
+#dropArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.7px dashed #b0b0b0;
+    border-radius: 3px;
+    width: 630px;
+    height: 250px;
+    font-family: sans-serif;
+    margin-bottom: 2.5vh;
+}
+
+#dropArea.highlight {
+    border-color: purple;
+}
+
+.myForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#cloud-icon {
+    height: 64px;
+}
+
+#formName {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #b8b8b8;
+}
+#sub-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #b8b8b8;
+}
+
+.button {
+    width: 95px;
+    height: 27px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #6DC7FF;
+    text-align: center;
+    line-height: 27px;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(to right, #6DC7FF, #C822FF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+/*
+light blue: #6DC7FF
+light purple: #E6ABFF
+blue: #1A6DFF
+purple: #C822FF
+*/
+
+
+.button:hover {
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
+}
+
+#fileElem {
+    display: none;
+}
+
+
+
+/* Listed Files */
+#listFiles {
+    width: 50vw;
+    font-family: sans-serif;
+    margin-bottom: 2.5vh;
+}
+
+#filename-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 1vh;
+    width: 100%;
+    height: 4vh;
+}
+
+#fileNameContainer {
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+}
+
+#fileNameContainer input {
+    font-size: 2vh;
+    margin-right: .5vw;
+}
+
+#fileNameContainer img {
+    height: 2vh;
+    margin-right: .4vw;
+}
+
+#fileNameContainer p {
+    font-size: 2vh;
+}
+
+#filename-div p {
+    font-size: 2vh;
+    margin-right: 2vw;
+}
+
+/* Dropdown */
+
+#dropdown-parent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 8vh;
+    width: 50vw;
+    z-index: 5;
+}
+
+/* Input styling */
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1.5px solid #cdcfd3;
+    border-radius: 3px;
+    height: 25px;
+    width: 130px;
+    background-color: white;
+}
+
+
+  
+.input__active {
+    border-color: #003bde;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+  
+.input__placeholder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.input:hover {
+    cursor: pointer;
+}
+  
+.placeholder {
+    color: #9b9fa8;
+    font-size: 14px;
+    margin-left: .5vw;
+}
+
+#chevron {
+    height: 20px;
+}
+  
+.input__selected {
+    color: #0b132b;
+    margin-left: .5vw;
+}
+  
+/* Dropdown styling */
+
+#hashName {
+    font-size: 12px;
+    color: #0b132b;
+}
+
+.structure {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 20vh;
+    width: 130px;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: white;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 5;
+}
+  
+.structure > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px;
+}
+  
+.structure > div:hover {
+    background-color: #003bde;
+    cursor: pointer;
+}
+
+.structure > div:hover > #hashName {
+    color: white;
+}
+  
+/* .structure > div > h5 {
+    font-weight: 600;
+    margin-right: 4px;
+}
+  
+.structure > div > p {
+    font-weight: 400;
+    font-size: 13px;
+    color: #9b9fa8;
+} */
+  
+.hide {
+    display: none;
+}
+
+/* Hashed File Text Area*/
+
+#hashed-file-parent {
+    width: 50vw;
+    height: 19vh;
+}
+
+#returnFeild {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 100%;
+    height: 19vh;
+    font-family: sans-serif;
+    margin-bottom: 2.5vh;
+    z-index: -1;
+}
+
+#copy-button {
+    border-radius: 3px;
+    /* background-color: red; */
 }

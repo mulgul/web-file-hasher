@@ -3,25 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="styles.css">
     <title>File Hasher</title>
 </head>
 <body class="body">
     <div class="header">
-        <div class="header-container">
-            <h1 class="name">
+        <!-- <div class="header-container"> -->
+            <h1 class="title">
                 File Hasher
             </h1>
+        <!-- </div> -->
+    </div>
+    <div class="page">
+        <div id="dropArea">
+            <form class="myForm">
+                <img src="upload-cloud.png" id="cloud-icon">
+                <p id="formName">Drag&Drop files here</p>
+                <p id="sub-text">or</p>
+                <input type="file" id="fileElem" multiple accept="image/*">
+                <label class="button" for="fileElem">Browse Files</label>
+            </form>
+        </div>
+        <div id="listFiles"></div>
+        <div id="dropdown-parent"></div>
+        <div id="hashed-file-parent">
+            <textarea name="" id="returnFeild" placeholder="Output" readonly cols="30" rows="10"></textarea>
+            <label class="button" for="fileElem">Copy</label>
         </div>
     </div>
-    <div id="drop-area">
-        <form class="my-form">
-            <p>Upload or Drag and Drop your files here</p>
-            <input type="file" id="file-elem" multiple accept="image/*">
-            <label class="button" for="file-elem">Select some files</label>
-        </form>
-    </div>
-    <div id="listFiles"></div>
     <script src="main.js" type="module"></script>
 </body>
 </html>
