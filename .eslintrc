@@ -15,7 +15,7 @@
     "env": {
       "browser": true,
       "node": true,
-      "es6": true,
+      "es6": true
     },
     "ignorePatterns": ["dist/hashing_lib.js", "hashing_lib"]
 }
