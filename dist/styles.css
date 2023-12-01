@@ -130,6 +130,33 @@ html,body{
     background-clip: content-box, border-box;
 }
 
+.button:hover {
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
+}
+
+#copy-btn {
+    display: block;
+    width: 65px;
+    height: 27px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #6DC7FF;
+    text-align: center;
+    line-height: 27px;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(to right, #6DC7FF, #C822FF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+#copy-btn:hover {
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
+}
+
 /*
 light blue: #6DC7FF;
 light purple: #E6ABFF;
@@ -137,17 +164,9 @@ blue: #1A6DFF;
 purple: #C822FF;
 */
 
-
-.button:hover {
-    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
-    color: rgb(245, 245, 245);
-}
-
 #fileElem {
     display: none;
 }
-
-
 
 /* Listed Files */
 #listFiles {

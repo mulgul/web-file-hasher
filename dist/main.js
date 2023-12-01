@@ -1,5 +1,12 @@
 import init, { hasher, hash_types } from './hashing_lib.js';
 
+/**
+ * TODO:
+ *
+ * We should change the file logo to a folder if the passed in artifact is a folder.
+ * We also have to account for that logic as well, as folders are handled differently than files.
+ */
+
 async function run() {
 	// Initialize wasm
 	await init();
