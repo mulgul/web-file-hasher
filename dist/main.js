@@ -35,7 +35,6 @@ async function run() {
 	});
 
 	const copyButton = document.getElementById('copy-btn');
-
 	copyButton.addEventListener('click', () => {
 		const copyText = document.getElementById('returnFeild');
 		copyText.select();
@@ -158,7 +157,6 @@ function addDragAndDrop(f) {
 	}
 
 	function handleDrop(e) {
-		console.log(e);
 		let dt = e.dataTransfer;
 		let files = dt.files;
 
@@ -190,26 +188,34 @@ function addDragAndDrop(f) {
 function addFileToList(file) {
 	const item = document.getElementById('listFiles');
 	const newLI = document.createElement('div');
-	const fileNameContainer = document.createElement('div');
+	const fileNameContainerLeft = document.createElement('div');
+	const fileNameContainerRight = document.createElement('div');
 	const fileName = document.createElement('p');
 	const fileSize = document.createElement('p');
 	const checkBox = document.createElement('input');
 	const filePng = document.createElement('img');
+	const trashPng = document.createElement('img');
 
 	newLI.setAttribute('id', 'filename-div');
-	fileNameContainer.setAttribute('id', 'fileNameContainer');
+	fileNameContainerLeft.setAttribute('id', 'fileNameContainerLeft');
+	fileNameContainerRight.setAttribute('id', 'fileNameContainerRight');
+	fileSize.setAttribute('id', 'file-size');
+	trashPng.setAttribute('id', 'trash-png');
 	fileName.textContent = file.name;
 	fileSize.textContent = convertFileSize(file.size, true);
 
 	checkBox.setAttribute('type', 'checkbox');
+	trashPng.setAttribute('src', 'trash.png');
 	filePng.setAttribute('src', 'file-icon.png');
 
 	item.appendChild(newLI);
-	fileNameContainer.appendChild(checkBox);
-	fileNameContainer.appendChild(filePng);
-	fileNameContainer.appendChild(fileName);
-	newLI.appendChild(fileNameContainer);
-	newLI.appendChild(fileSize);
+	fileNameContainerLeft.appendChild(checkBox);
+	fileNameContainerLeft.appendChild(filePng);
+	fileNameContainerLeft.appendChild(fileName);
+	fileNameContainerRight.appendChild(fileSize);
+	fileNameContainerRight.appendChild(trashPng);
+	newLI.appendChild(fileNameContainerLeft);
+	newLI.appendChild(fileNameContainerRight);
 }
 
 function readFileAsUrlToBase64(file, selectedHashType) {

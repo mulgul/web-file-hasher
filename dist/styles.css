@@ -186,29 +186,47 @@ purple: #C822FF;
     height: 4vh;
 }
 
-#fileNameContainer {
+#trash-png {
+    cursor: pointer;
+    height: 18px;
+    margin-right: 10px;
+}
+
+#fileNameContainerRight {
+    display: flex;
+    align-items: center;
+}
+
+#file-size {
+    margin-right: 5px;
+}
+
+#fileNameContainerLeft img {
+    margin-right: 10px;
+}
+
+#fileNameContainerLeft {
     display: flex;
     align-items: center;
     margin-left: 1vw;
 }
 
-#fileNameContainer input {
+#fileNameContainerLeft input {
     font-size: 2vh;
     margin-right: .5vw;
 }
 
-#fileNameContainer img {
+#fileNameContainerLeft img {
     height: 2vh;
     margin-right: .4vw;
 }
 
-#fileNameContainer p {
+#fileNameContainerLeft p {
     font-size: 2vh;
 }
 
 #filename-div p {
     font-size: 2vh;
-    margin-right: 2vw;
 }
 
 /* Dropdown */
