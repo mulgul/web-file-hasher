@@ -25,9 +25,11 @@ async function run() {
 			// This should print some read text saying
 			// A file must be uploaded before hashing.
 		}
-		for (let i = 0; i < files.length; i++) {
+        const selectedFiles = getSelectedFileTypes();
+        const sFiles = files.filter((file) => selectedFiles.includes(file.name));
+		for (let i = 0; i < sFiles.length; i++) {
 			const text = document.querySelector('.placeholder');
-			readers.push(readFileAsUrlToBase64(files[i], text.textContent));
+			readers.push(readFileAsUrlToBase64(sFiles[i], text.textContent));
 		}
 		Promise.all(readers).then((values) => {
 			printHashedFile(values.join());
@@ -45,9 +47,11 @@ async function run() {
 	});
 }
 
-function getSelectedFiles() {
+function getSelectedFileTypes() {
     const files = document.getElementsByClassName('filename-div');
-    console.log(files);
+    return Array.from(files)
+        .filter((node) => node.firstChild.childNodes[0].checked)
+        .map((node) => node.firstChild.innerText);
 }
 
 function convertFileSize(bytes, si = false, dp = 1) {
