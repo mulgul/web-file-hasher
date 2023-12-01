@@ -30,6 +30,18 @@
 
 
 
+
+/*
+SITE COLORS
+
+white: #F5F5F5
+light blue: #6DC7FF;
+light purple: #E6ABFF;
+blue: #1A6DFF;
+purple: #C822FF;
+*/
+
+
 html,body{
     margin:0;
     padding: 0;
@@ -42,7 +54,7 @@ html,body{
     height: 100%;
     min-height: 100vh;
     overflow: scroll;
-    background-color: rgb(245, 245, 245);
+    background-color: #F5F5F5;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: rgb(14, 14, 14);
 }
@@ -156,13 +168,6 @@ html,body{
     background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
     color: rgb(245, 245, 245);
 }
-
-/*
-light blue: #6DC7FF;
-light purple: #E6ABFF;
-blue: #1A6DFF;
-purple: #C822FF;
-*/
 
 #fileElem {
     display: none;
@@ -333,8 +338,7 @@ purple: #C822FF;
     background-color: #1A6DFF;
     cursor: pointer;
 }
-/* blue: #1A6DFF;
-purple: #C822FF; */
+
 
 .structure > div:hover > #hashName {
     color: white;
