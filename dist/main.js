@@ -174,14 +174,14 @@ function addDragAndDrop(f) {
 
 		for (const file of files) {
 			f.push(file);
-			addFileToList(file);
+			addFileToList(file, f);
 		}
 	}
 
 	fileElem.onchange = () => {
 		for (const file of fileElem.files) {
 			f.push(file);
-			addFileToList(file);
+			addFileToList(file, f);
 		}
 	};
 	['dragenter', 'dragover', 'dragleave', 'drop'].forEach((eventName) => {
@@ -197,7 +197,7 @@ function addDragAndDrop(f) {
 	dropArea.addEventListener('drop', handleDrop, false);
 }
 
-function addFileToList(file) {
+function addFileToList(file, files) {
 	const item = document.getElementById('listFiles');
 	const newLI = document.createElement('div');
 	const fileNameContainerLeft = document.createElement('div');
@@ -230,6 +230,16 @@ function addFileToList(file) {
 	newLI.appendChild(fileNameContainerRight);
 
 	checkBox.checked = true;
+
+	trashPng.addEventListener('click', () => {
+		const fName = file.name;
+		for (let i = 0; i < files.length; i++) {
+			if (files[i].name === fName) {
+				files.splice(i, 1);
+			}
+		}
+		newLI.remove();
+	});
 }
 
 function printHashedFile(hashedFile) {
