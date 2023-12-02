@@ -1,4 +1,5 @@
 import init, { hasher, hash_types } from './hashing_lib.js';
+import { convertFileSize, readFileAsUrlToBase64 } from './util.js';
 
 /**
  * TODO:
@@ -49,6 +50,12 @@ async function run() {
 	});
 }
 
+/**
+ * This will filter the selected files for the ones that are checked, and filter
+ * their hash types.
+ *
+ * @returns {Array} Returns an array of selected file type.
+ */
 function getSelectedFileTypes() {
 	const files = document.getElementsByClassName('filename-div');
 	return Array.from(files)
@@ -56,32 +63,16 @@ function getSelectedFileTypes() {
 		.map((node) => node.firstChild.innerText);
 }
 
-function convertFileSize(bytes, si = false, dp = 1) {
-	const thresh = si ? 1000 : 1024;
-
-	if (Math.abs(bytes) < thresh) {
-		return bytes + ' B';
-	}
-
-	const units = si
-		? ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
-		: ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'];
-	let u = -1;
-	const r = 10 ** dp;
-
-	do {
-		bytes /= thresh;
-		++u;
-	} while (
-		Math.round(Math.abs(bytes) * r) / r >= thresh &&
-		u < units.length - 1
-	);
-
-	return bytes.toFixed(dp) + ' ' + units[u];
-}
-
+/**
+ * Creates a dropdown for selecting hash types.
+ *
+ * @returns {void}
+ */
 function addDropDown() {
+	// Hashing types available. From WASM.
 	const hashingTypes = hash_types();
+
+	const dropDiv = document.getElementById('dropdown-parent');
 	const dropContainer = document.createElement('div');
 
 	const input = createInput();
@@ -89,10 +80,14 @@ function addDropDown() {
 
 	dropContainer.appendChild(input);
 	dropContainer.appendChild(dropdown);
-	const dropDiv = document.getElementById('dropdown-parent');
 	dropDiv.appendChild(dropContainer);
 }
 
+/**
+ * Creates the inital input for the dropdown.
+ *
+ * @returns {void}
+ */
 function createInput() {
 	const input = document.createElement('div');
 	input.classList = 'input';
@@ -116,6 +111,12 @@ function createInput() {
 	return input;
 }
 
+/**
+ * This creates the logic to toggle the dropwdown.
+ *
+ * @param {*} hashingTypes
+ * @returns {HTMLDivElement}
+ */
 function showDropdown(hashingTypes) {
 	const structure = document.createElement('div');
 	structure.classList.add('structure', 'hide');
@@ -135,19 +136,19 @@ function showDropdown(hashingTypes) {
 	return structure;
 }
 
+function selectOption(hash) {
+	const text = document.querySelector('.placeholder');
+	text.textContent = hash;
+	text.classList.add('input__selected');
+	toggleDropdown();
+}
+
 function toggleDropdown() {
 	const dropdown = document.querySelector('.structure');
 	dropdown.classList.toggle('hide');
 
 	const input = document.querySelector('.input');
 	input.classList.toggle('input__active');
-}
-
-function selectOption(hash) {
-	const text = document.querySelector('.placeholder');
-	text.textContent = hash;
-	text.classList.add('input__selected');
-	toggleDropdown();
 }
 
 function addDragAndDrop(f) {
@@ -229,23 +230,6 @@ function addFileToList(file) {
 	newLI.appendChild(fileNameContainerRight);
 
 	checkBox.checked = true;
-}
-
-function readFileAsUrlToBase64(file) {
-	return new Promise(function (resolve, reject) {
-		let fr = new FileReader();
-
-		fr.onloadend = function () {
-			const base64String = fr.result.replace('data:', '').replace(/^.+,/, '');
-			resolve(base64String);
-		};
-
-		fr.onerror = function () {
-			reject(fr);
-		};
-
-		fr.readAsDataURL(file);
-	});
 }
 
 function printHashedFile(hashedFile) {
