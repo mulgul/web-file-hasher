@@ -214,11 +214,16 @@ input:focus, textarea {
 
 #drop-and-hash-parent {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 8vh;
+    height: 201px;
     width: 660px;
     z-index: 5; 
+}
+
+#hash-select-and-btn {
+    display: flex;
 }
 
 #dropdown-parent {
@@ -459,8 +464,8 @@ purple: #C822FF;
     position: absolute;
     bottom: 0;
     left: 50%;
-    width: 100vw;
-    height: 100vh;
+    width: 200vw;
+    height: 99vh;
     background: #C822FF;
     border-radius: 50%;
     transform-origin: bottom;
