@@ -16,6 +16,10 @@ html,body{
     padding: 0;
 }
 
+input:focus, textarea {
+    outline: none !important;
+}
+
 .body {
     display: flex;
     flex-direction: column;
@@ -358,6 +362,7 @@ html,body{
 #hashed-file-parent {
     width: 660px;
     height: 19vh;
+    position: relative;
 }
 
 #returnFeild {
@@ -370,6 +375,7 @@ html,body{
     z-index: -1;
     font-size: 12px;
     font-weight: 100;
+    padding: 0;
 }
 
 #returnFeild::placeholder {
@@ -393,6 +399,34 @@ html,body{
                       linear-gradient(to right, #6DC7FF, #C822FF);
     background-origin: border-box;
     background-clip: content-box, border-box;
+}
+
+#copied-check {
+    height: 14px;
+}
+
+.copied {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e2e4ea;
+    color: rgba(80, 210, 44, 0.737);
+    position:absolute;
+    top:0;
+    right:0;
+    width: 70px;
+    height: 20px;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+}
+
+.animate { animation: disappear 3.5s linear; }
+
+@keyframes disappear {
+    30%  { opacity: 1; }
+    60%  { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 
@@ -429,6 +463,7 @@ purple: #C822FF;
 
     #returnFeild {
         width: 460px;
+        padding: 0;
     }
 }
 

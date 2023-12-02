@@ -44,8 +44,13 @@ async function run() {
 		const copyText = document.getElementById('returnFeild');
 		copyText.select();
 		navigator.clipboard.writeText(copyText.value).then(() => {
-			// TODO: This should be a `Copied` message that shows up on the text area. then dissapears after 2 seconds.
-			alert('Copied the text: ' + copyText.value);
+			const copyDiv = document.querySelector('.copied');
+			if (copyDiv) {
+				copyDiv.classList.add('animate');
+				copyDiv.addEventListener('animationend', () =>
+					copyDiv.classList.remove('animate')
+				);
+			}
 		});
 	});
 }
