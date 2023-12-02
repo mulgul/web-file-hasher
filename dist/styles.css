@@ -451,6 +451,7 @@ purple: #C822FF;
 
     #returnFeild {
         width: 360px;
+        padding: 0;
     }
 }
 
@@ -473,5 +474,6 @@ purple: #C822FF;
 
     #returnFeild {
         width: 340px;
+        padding: 0;
     }
 }
