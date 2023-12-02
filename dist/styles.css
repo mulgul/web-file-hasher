@@ -361,7 +361,7 @@ input:focus, textarea {
 
 #hashed-file-parent {
     width: 660px;
-    height: 19vh;
+    height: 150px;
     position: relative;
 }
 
@@ -401,22 +401,19 @@ input:focus, textarea {
     background-clip: content-box, border-box;
 }
 
-#copied-check {
-    height: 14px;
-}
-
 .copied {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     background-color: #e2e4ea;
-    color: rgba(80, 210, 44, 0.737);
+    color: #50d22cbb;
+    border-radius: 0 3px 0 3px;
     position:absolute;
-    top:0;
-    right:0;
+    top: 1px;
+    right: -1px;
     width: 70px;
-    height: 20px;
-    font-size: 14px;
+    height: 15px;
+    font-size: 11px;
     text-align: center;
     opacity: 0;
 }
@@ -429,6 +426,9 @@ input:focus, textarea {
     100% { opacity: 0; }
 }
 
+#copied-check {
+    height: 11px;
+}
 
 /*
 light blue: #6DC7FF;
