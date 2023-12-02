@@ -102,7 +102,7 @@ function createInput() {
 
 	// Appends the placeholder and chevron (stored in assets.js)
 	const chevronPng = document.createElement('img');
-	chevronPng.setAttribute('src', 'chevron.png');
+	chevronPng.setAttribute('src', 'assets/chevron.png');
 	chevronPng.setAttribute('id', 'chevron');
 	inputPlaceholder.appendChild(placeholder);
 	inputPlaceholder.appendChild(chevronPng);
@@ -217,8 +217,8 @@ function addFileToList(file) {
 	fileSize.textContent = convertFileSize(file.size, true);
 
 	checkBox.setAttribute('type', 'checkbox');
-	trashPng.setAttribute('src', 'trash.png');
-	filePng.setAttribute('src', 'file-icon.png');
+	trashPng.setAttribute('src', 'assets/trash.png');
+	filePng.setAttribute('src', 'assets/file-icon.png');
 
 	item.appendChild(newLI);
 	fileNameContainerLeft.appendChild(checkBox);
