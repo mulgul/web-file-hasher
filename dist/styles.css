@@ -229,21 +229,16 @@ html,body{
 }
 
 #fileNameContainerLeft input {
-    font-size: 2vh;
     margin-right: .5vw;
 }
 
 #fileNameContainerLeft img {
-    height: 2vh;
+    height: 18px;
     margin-right: .4vw;
 }
 
-#fileNameContainerLeft p {
-    font-size: 2vh;
-}
-
 .filename-div p {
-    font-size: 2vh;
+    font-size: 15px;
 }
 
 /* Dropdown */
