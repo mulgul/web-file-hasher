@@ -1,38 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;300;400;500;600;700&family=Raleway:wght@100;200;300;400;500;600&display=swap');
-
-/* Body of the page */
-
-/* I DON'T KNOW WHAT THIS IS*/
-
-/* p {
-    margin-top: 0;
-}
-
-
-#gallery {
-    margin-top: 10px;
-}
-
-#gallery img {
-    width: 150px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-
-
-@media screen and (min-width: 600px) {
-    .header-container {
-        justify-content: center;
-        display: flex;
-    }
-} */
-
-/* I DON'T KNOW WHAT THIS IS*/
-
-
-
-
 /*
 SITE COLORS
 
@@ -44,7 +10,6 @@ light purple: #E6ABFF;
 blue: #1A6DFF;
 purple: #C822FF;
 */
-
 
 html,body{
     margin:0;
@@ -442,4 +407,71 @@ purple: #C822FF;
 .copy-button:hover {
     background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
     color: rgb(245, 245, 245);
+}
+
+
+@media (max-width: 700px) {
+    #dropArea {
+        width: 460px;
+    }
+
+    #listFiles {
+        width: 460px;
+    }
+
+    #drop-and-hash-parent {
+        width: 460px;
+    }
+
+    #hashed-file-parent {
+        width: 460px;
+    }
+
+    #returnFeild {
+        width: 460px;
+    }
+}
+
+@media (max-width: 500px) {
+    #dropArea {
+        width: 360px;
+    }
+
+    #listFiles {
+        width: 360px;
+    }
+
+    #drop-and-hash-parent {
+        width: 360px;
+    }
+
+    #hashed-file-parent {
+        width: 360px;
+    }
+
+    #returnFeild {
+        width: 360px;
+    }
+}
+
+@media (max-width: 400px) {
+    #dropArea {
+        width: 340px;
+    }
+
+    #listFiles {
+        width: 340px;
+    }
+
+    #drop-and-hash-parent {
+        width: 340px;
+    }
+
+    #hashed-file-parent {
+        width: 340px;
+    }
+
+    #returnFeild {
+        width: 340px;
+    }
 }
