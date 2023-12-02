@@ -38,7 +38,7 @@ input:focus, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); */
     margin-bottom: 5vh;
     height: 50px;
     width: 100%;
@@ -442,6 +442,58 @@ purple: #C822FF;
     background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
     color: rgb(245, 245, 245);
 }
+
+
+.info-container-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+}
+
+.info-container-section::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    background: #C822FF;
+    border-radius: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%) scale(1.1);
+}
+
+
+.info-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.info-container h2 {
+    font-size: 24px;
+    color: #F5F5F5;
+}
+
+.info-container p {
+    font-size: 14px;
+    color: #F5F5F5;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 @media (max-width: 700px) {
