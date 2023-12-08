@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="/favicon.png"/>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="styles.css">
+    <title>File Hasher</title>
+</head>
+<body class="body">
+    <div class="header">
+        <img src="assets/hasher-icon-1.png" id="hasher-icon" alt="">
+        <h1 class="title">
+            File Hasher
+        </h1>
+    </div>
+    <div class="page">
+        <div id="dropArea">
+            <form class="myForm">
+                <img src="assets/upload-cloud.png" id="cloud-icon">
+                <p id="formName">Drag&Drop files here</p>
+                <p id="sub-text">or</p>
+                <input type="file" id="fileElem" multiple accept="image/*">
+                <label class="button" for="fileElem">Browse Files</label>
+            </form>
+        </div>
+        <div id="listFiles"></div>
+        <divc id="drop-and-hash-parent">
+            <div id="dropdown-parent"></div>
+            <label id="hash-btn">Hash</label>
+            <!-- <button id="hash-btn">Hash</button> -->
+        </div>
+        <div id="hashed-file-parent">
+            <textarea name="" id="returnFeild" placeholder="Output" readonly cols="30" rows="10"></textarea>
+            <label id="copy-btn">Copy</label>
+            <div class="copied">
+                <p>Copied</p>
+                <img src="assets/check.png" id="copied-check">
+            </div>
+        </div>
+    </div>
+    <script src="bundle.js" type="module"></script>
+</body>
+</html>

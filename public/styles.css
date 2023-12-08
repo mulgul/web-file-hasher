@@ -1,0 +1,514 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;300;400;500;600;700&family=Raleway:wght@100;200;300;400;500;600&display=swap');
+/*
+SITE COLORS
+
+white: #F5F5F5;
+grey: #b8b8b8;
+darker grey: #b0b0b0;
+light blue: #6DC7FF;
+light purple: #E6ABFF;
+blue: #1A6DFF;
+purple: #C822FF;
+*/
+
+html,body{
+    margin:0;
+    padding: 0;
+}
+
+input:focus, textarea {
+    outline: none !important;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: #F5F5F5;
+    font-family: "Raleway";
+    color: rgb(14, 14, 14);
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 5vh;
+    height: 50px;
+    width: 100%;
+}
+
+#hasher-icon {
+    height: 25px;
+    margin-right: 5px;
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+/* Page Dimessions*/
+.page {
+    margin: 0vw 8.5vw 0vw 8.5vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+
+/* Drag and Drop Files */
+#dropArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.7px dashed #b0b0b0;
+    border-radius: 3px;
+    width: 660px;
+    height: 250px;
+    /* font-family: sans-serif; */
+    margin-bottom: 2.5vh;
+}
+
+#dropArea.highlight {
+    border-color: purple;
+}
+
+.myForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#cloud-icon {
+    height: 64px;
+}
+
+#formName {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    color: #b8b8b8;
+}
+#sub-text {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #b8b8b8;
+}
+
+.button {
+    width: 95px;
+    height: 27px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #6DC7FF;
+    text-align: center;
+    line-height: 27px;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(to right, #6DC7FF, #C822FF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.button:hover {
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
+}
+
+#copy-btn {
+    display: block;
+    width: 65px;
+    height: 27px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #6DC7FF;
+    text-align: center;
+    line-height: 27px;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(to right, #6DC7FF, #C822FF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+#copy-btn:hover {
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
+}
+
+#fileElem {
+    display: none;
+}
+
+/* Listed Files */
+#listFiles {
+    width: 660px;
+    /* font-family: sans-serif; */
+    margin-bottom: 2.5vh;
+}
+
+.filename-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid #ccc; */
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); */
+    border-radius: 3px;
+    margin-bottom: 1vh;
+    width: 100%;
+    height: 25px;
+}
+
+#trash-png {
+    cursor: pointer;
+    height: 18px;
+    margin-right: 10px;
+}
+
+#fileNameContainerRight {
+    display: flex;
+    align-items: center;
+}
+
+#file-size {
+    margin-right: 5px;
+}
+
+#fileNameContainerLeft img {
+    margin-right: 10px;
+}
+
+#fileNameContainerLeft {
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+}
+
+#fileNameContainerLeft input {
+    margin-right: .5vw;
+}
+
+#fileNameContainerLeft img {
+    height: 18px;
+    margin-right: .4vw;
+}
+
+.filename-div p {
+    font-size: 15px;
+}
+
+/* Dropdown */
+
+#drop-and-hash-parent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 8vh;
+    width: 660px;
+    z-index: 5; 
+}
+
+#dropdown-parent {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 8vh;
+    /* width: 660px; */
+    width: 150px;
+    z-index: 5;
+}
+
+/* Hash btn */
+
+#hash-btn {
+    cursor: pointer;
+    width: 80px;
+    height: 24px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #6DC7FF;
+    text-align: center;
+    line-height: 25px;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(to right, #6DC7FF, #C822FF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+#hash-btn:hover {
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
+}
+
+
+/* Input styling */
+.input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1.5px solid #cdcfd3;
+    border-radius: 3px;
+    height: 25px;
+    width: 130px;
+    background-color: white;
+}
+
+
+  
+.input__active {
+    border-color: #6DC7FF;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+  
+.input__placeholder {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+  
+.input:hover {
+    cursor: pointer;
+}
+  
+.placeholder {
+    color: #b8b8b8;
+    font-size: 12px;
+    font-weight: 500;
+    margin-left: .5vw;
+}
+
+#chevron {
+    height: 16px;
+    margin-right: 5px;
+}
+  
+.input__selected {
+    color: #0b132b;
+    margin-left: .5vw;
+}
+  
+/* Dropdown styling */
+
+#hashName {
+    font-size: 12px;
+    color: #0b132b;
+}
+
+.structure {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 108px;
+    width: 133px;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: white;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 5;
+}
+  
+.structure > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 6px;
+}
+  
+.structure > div:hover {
+    background-color: #1A6DFF;
+    cursor: pointer;
+}
+
+
+.structure > div:hover > #hashName {
+    color: white;
+}
+  
+/* .structure > div > h5 {
+    font-weight: 600;
+    margin-right: 4px;
+}
+  
+.structure > div > p {
+    font-weight: 400;
+    font-size: 13px;
+    color: #9b9fa8;
+} */
+  
+.hide {
+    display: none;
+}
+
+/* Hashed File Text Area*/
+
+#hashed-file-parent {
+    width: 660px;
+    height: 19vh;
+    position: relative;
+}
+
+#returnFeild {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 660px;
+    height: 100px;
+    /* font-family: sans-serif; */
+    margin-bottom: 2.5vh;
+    z-index: -1;
+    font-size: 12px;
+    font-weight: 100;
+    padding: 0;
+}
+
+#returnFeild::placeholder {
+    color: #b8b8b8;
+    font-size: 12px;
+    font-weight: 100;
+    padding-left: 4px;
+}
+
+.copy-button {
+    width: 95px;
+    height: 27px;
+    padding: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: #6DC7FF;
+    text-align: center;
+    line-height: 27px;
+    background-image: linear-gradient(white, white), 
+                      linear-gradient(to right, #6DC7FF, #C822FF);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+#copied-check {
+    height: 14px;
+}
+
+.copied {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e2e4ea;
+    color: rgba(80, 210, 44, 0.737);
+    position:absolute;
+    top:0;
+    right:0;
+    width: 70px;
+    height: 20px;
+    font-size: 14px;
+    text-align: center;
+    opacity: 0;
+}
+
+.animate { animation: disappear 3.5s linear; }
+
+@keyframes disappear {
+    30%  { opacity: 1; }
+    60%  { opacity: 1; }
+    100% { opacity: 0; }
+}
+
+
+/*
+light blue: #6DC7FF;
+light purple: #E6ABFF;
+blue: #1A6DFF;
+purple: #C822FF;
+*/
+
+
+.copy-button:hover {
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
+}
+
+
+@media (max-width: 700px) {
+    #dropArea {
+        width: 460px;
+    }
+
+    #listFiles {
+        width: 460px;
+    }
+
+    #drop-and-hash-parent {
+        width: 460px;
+    }
+
+    #hashed-file-parent {
+        width: 460px;
+    }
+
+    #returnFeild {
+        width: 460px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 500px) {
+    #dropArea {
+        width: 360px;
+    }
+
+    #listFiles {
+        width: 360px;
+    }
+
+    #drop-and-hash-parent {
+        width: 360px;
+    }
+
+    #hashed-file-parent {
+        width: 360px;
+    }
+
+    #returnFeild {
+        width: 360px;
+        padding: 0;
+    }
+}
+
+@media (max-width: 400px) {
+    #dropArea {
+        width: 340px;
+    }
+
+    #listFiles {
+        width: 340px;
+    }
+
+    #drop-and-hash-parent {
+        width: 340px;
+    }
+
+    #hashed-file-parent {
+        width: 340px;
+    }
+
+    #returnFeild {
+        width: 340px;
+        padding: 0;
+    }
+}
