@@ -2,24 +2,20 @@
 
 This focuses on giving a UI to hash files using wasm.
 
-### Prerequisites
+### Run Locally
 
-Rust - Cargo
-
-```
-```
-
-### To Run
-
-```
+```bash
 yarn install
-yarn start
+yarn dev
 ```
 
-Then go to `localhost:8080`
+### Build wasm
 
-To see the wasm run, look at the console.
+**Prerequisites**
 
-TODO
+- Rust
+- Cargo
 
-- Bash script that runs wasm-pack, and removes unnecessary files.
+```bash
+sh build.sh
+```
