@@ -36,7 +36,7 @@ install_wasm_pack() {
 install_wasm_pack
 
 cd hashing-lib
-wasm-pack build --target web --out-dir ../dist
+wasm-pack build --target web --out-dir ../public
 
 cd ..
 cd dist
