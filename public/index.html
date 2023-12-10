@@ -27,10 +27,10 @@
         </div>
         <div id="listFiles"></div>
         <divc id="drop-and-hash-parent">
-            <div id="dropdown-parent"></div>
-            <label id="hash-btn">Hash</label>
-            <!-- <button id="hash-btn">Hash</button> -->
-        </div>
+            <div id="hash-select-and-btn">
+                <div id="dropdown-parent"></div>
+                <label id="hash-btn">Hash</label>
+            </div>
         <div id="hashed-file-parent">
             <textarea name="" id="returnFeild" placeholder="Output" readonly cols="30" rows="10"></textarea>
             <label id="copy-btn">Copy</label>
@@ -40,6 +40,18 @@
             </div>
         </div>
     </div>
-    <script src="bundle.js" type="module"></script>
+    <section class="info-container-section">
+        <div class="info-container">
+            <h1 class="header-1">About</h1>
+            <p class="about-text">
+                File hashing is a great way to ensure the equality of two files.
+                This is useful if you are transferring documents and you want to ensure the integrity of the file.
+                Without Having to open your documents you can compare byte for byte if the files are identical.
+                The following is a RUST-WASM based implementation, and uses audited OSS as the basis for the cryptographic hashing.
+                The source code is available <a href="https://github.com/mulgul/web-file-hasher">here</a>.
+            </p>
+        </div>
+    </section>
+    <script src="main.js" type="module"></script>
 </body>
 </html>

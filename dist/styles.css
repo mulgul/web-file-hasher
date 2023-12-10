@@ -28,7 +28,7 @@ input:focus, textarea {
     min-height: 100vh;
     overflow: scroll;
     overflow-x: hidden;
-    background-color: #F5F5F5;
+    background-color: #1A6DFF;
     font-family: "Raleway";
     color: rgb(14, 14, 14);
 }
@@ -38,10 +38,10 @@ input:focus, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-    margin-bottom: 5vh;
+    padding-bottom: 5vh;
     height: 50px;
     width: 100%;
+    background-color: #F5F5F5;
 }
 
 #hasher-icon {
@@ -60,9 +60,11 @@ input:focus, textarea {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 155vw;
+    height: 600px;
+    background-color: #F5F5F5;
+    border-radius: 0 0 50% 50%;
 }
-
 
 /* Drag and Drop Files */
 #dropArea {
@@ -73,7 +75,6 @@ input:focus, textarea {
     border-radius: 3px;
     width: 660px;
     height: 250px;
-    /* font-family: sans-serif; */
     margin-bottom: 2.5vh;
 }
 
@@ -155,7 +156,6 @@ input:focus, textarea {
 /* Listed Files */
 #listFiles {
     width: 660px;
-    /* font-family: sans-serif; */
     margin-bottom: 2.5vh;
 }
 
@@ -163,9 +163,7 @@ input:focus, textarea {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* border: 1px solid #ccc; */
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
-    /* box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2); */
     border-radius: 3px;
     margin-bottom: 1vh;
     width: 100%;
@@ -214,11 +212,16 @@ input:focus, textarea {
 
 #drop-and-hash-parent {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 8vh;
+    height: 201px;
     width: 660px;
     z-index: 5; 
+}
+
+#hash-select-and-btn {
+    display: flex;
 }
 
 #dropdown-parent {
@@ -226,7 +229,6 @@ input:focus, textarea {
     justify-content: flex-start;
     align-items: flex-start;
     height: 8vh;
-    /* width: 660px; */
     width: 150px;
     z-index: 5;
 }
@@ -267,8 +269,6 @@ input:focus, textarea {
     width: 130px;
     background-color: white;
 }
-
-
   
 .input__active {
     border-color: #6DC7FF;
@@ -342,17 +342,6 @@ input:focus, textarea {
     color: white;
 }
   
-/* .structure > div > h5 {
-    font-weight: 600;
-    margin-right: 4px;
-}
-  
-.structure > div > p {
-    font-weight: 400;
-    font-size: 13px;
-    color: #9b9fa8;
-} */
-  
 .hide {
     display: none;
 }
@@ -361,7 +350,7 @@ input:focus, textarea {
 
 #hashed-file-parent {
     width: 660px;
-    height: 19vh;
+    height: 150px;
     position: relative;
 }
 
@@ -370,7 +359,6 @@ input:focus, textarea {
     border-radius: 3px;
     width: 660px;
     height: 100px;
-    /* font-family: sans-serif; */
     margin-bottom: 2.5vh;
     z-index: -1;
     font-size: 12px;
@@ -401,22 +389,19 @@ input:focus, textarea {
     background-clip: content-box, border-box;
 }
 
-#copied-check {
-    height: 14px;
-}
-
 .copied {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
     background-color: #e2e4ea;
-    color: rgba(80, 210, 44, 0.737);
+    color: #50d22cbb;
+    border-radius: 0 3px 0 3px;
     position:absolute;
-    top:0;
-    right:0;
+    top: 1px;
+    right: -1px;
     width: 70px;
-    height: 20px;
-    font-size: 14px;
+    height: 15px;
+    font-size: 11px;
     text-align: center;
     opacity: 0;
 }
@@ -429,6 +414,9 @@ input:focus, textarea {
     100% { opacity: 0; }
 }
 
+#copied-check {
+    height: 11px;
+}
 
 /*
 light blue: #6DC7FF;
@@ -437,12 +425,57 @@ blue: #1A6DFF;
 purple: #C822FF;
 */
 
-
 .copy-button:hover {
     background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
     color: rgb(245, 245, 245);
 }
 
+.info-container-section {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+}
+
+.info-container {
+    position: relative;
+    z-index: 1;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.info-container h2 {
+    font-size: 24px;
+    color: #F5F5F5;
+}
+
+.info-container p {
+    margin-top: 15px;
+    font-size: 20px;
+    color: #F5F5F5;
+}
+
+.info-container a {
+    font-weight: bold;
+    color: #d45cfc;
+    text-decoration: none;
+    transition: all .2s linear;
+}
+
+.info-container a:hover {
+    color: grey;
+}
+
+.header-1 {
+    font-size: 46px;
+    color: #F5F5F5;
+}
+
+.about-text {
+    line-height: 35px;
+    width: 500px;
+}
 
 @media (max-width: 700px) {
     #dropArea {
@@ -464,6 +497,14 @@ purple: #C822FF;
     #returnFeild {
         width: 460px;
         padding: 0;
+    }
+
+    .about-text {
+        width: 300px;
+    }
+
+    .page {
+        border-radius: 0 0 42% 42%;
     }
 }
 
@@ -488,6 +529,14 @@ purple: #C822FF;
         width: 360px;
         padding: 0;
     }
+
+    .about-text {
+        width: 300px;
+    }
+
+    .page {
+        border-radius: 0 0 42% 42%;
+    }
 }
 
 @media (max-width: 400px) {
@@ -510,5 +559,13 @@ purple: #C822FF;
     #returnFeild {
         width: 340px;
         padding: 0;
+    }
+
+    .about-text {
+        width: 300px;
+    }
+
+    .page {
+        border-radius: 0 0 42% 42%;
     }
 }

@@ -17,5 +17,5 @@
       "node": true,
       "es6": true
     },
-    "ignorePatterns": ["dist/hashing_lib.js", "hashing_lib"]
+    "ignorePatterns": ["dist", "public/hashing_lib.js"]
 }
