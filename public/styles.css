@@ -38,20 +38,22 @@ input:focus, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 5vh;
+    padding-bottom: 25px;
+    padding-top: 20px;
     height: 50px;
     width: 100%;
     background-color: #F5F5F5;
 }
 
 #hasher-icon {
-    height: 25px;
+    height: 44px;
     margin-right: 5px;
 }
 
 .title {
-    font-size: 28px;
+    font-size: 46px;
     font-weight: 500;
+    color: #5e5e5e;
 }
 
 /* Page Dimessions*/
@@ -61,7 +63,8 @@ input:focus, textarea {
     flex-direction: column;
     align-items: center;
     width: 155vw;
-    height: 600px;
+    min-height: 487px;
+    padding-bottom: 105px;
     background-color: #F5F5F5;
     border-radius: 0 0 50% 50%;
 }
@@ -470,6 +473,7 @@ purple: #C822FF;
 .header-1 {
     font-size: 46px;
     color: #F5F5F5;
+    font-weight: 500;
 }
 
 .about-text {
