@@ -445,7 +445,7 @@ purple: #C822FF;
 .info-container {
     position: relative;
     z-index: 1;
-    max-width: 1000px;
+    width: 660px;
     text-align: center;
 }
 
@@ -460,30 +460,51 @@ purple: #C822FF;
     display: flex;
     margin-bottom: 30px;
     justify-content: space-between;
+    align-items: center;
 }
 
 .text-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 165px;
+    height: 85px;
     width: 490px;
 }
 
-.icon-container {
+.why-icon-container {
     height: 140px;
     width: 140px;
-    background-color: #a0a0a0;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    scroll-margin-left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.how-icon-container {
+    height: 140px;
+    width: 140px;
+    background-color: #f5f5f5;
     border-radius: 50%;
     margin-right: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
 }
 
-.info-icon {
+.why-icon {
     height: 100px;
+}
+
+.how-icon {
+    position: absolute;
+    height: 160px;
+    top: -20px;
 }
 
 .section-title {
@@ -494,9 +515,9 @@ purple: #C822FF;
 }
 
 .about-text {
-    line-height: 35px;
+    line-height: 20px;
     width: 500px;
-    font-size: 15px;
+    font-size: 12px;
     color: #F5F5F5;
     text-align: left;
 }
@@ -541,6 +562,10 @@ purple: #C822FF;
     .page {
         border-radius: 0 0 42% 42%;
     }
+
+    .info-container-section {
+        width: 300px;
+    }
 }
 
 @media (max-width: 500px) {
@@ -572,9 +597,22 @@ purple: #C822FF;
     .page {
         border-radius: 0 0 42% 42%;
     }
+
+    /* .info-container-section {
+        width: 460px;
+    } */
 }
 
 @media (max-width: 400px) {
+
+    html, body {
+        overflow-x: hidden;
+    }
+    
+    body {
+        position: relative
+    }
+
     #dropArea {
         width: 340px;
     }
@@ -596,11 +634,48 @@ purple: #C822FF;
         padding: 0;
     }
 
-    .about-text {
-        width: 300px;
-    }
-
     .page {
         border-radius: 0 0 42% 42%;
+    }
+
+    .info-container-section {
+        width: 340px;
+    }
+
+    .info-container {
+        width: 340px;
+    }
+    
+    .section-container {
+        width: 340px;
+        height: 240px;
+    }
+
+    .text-container {
+        width: 190px;
+        height: 200px;
+    }
+
+    .about-text {
+        width: 180px;
+    }
+
+    .why-icon-container {
+        height: 130px;
+        width: 130px;
+    }
+
+    .why-icon {
+        height: 90px;
+    }
+
+    .how-icon-container {
+        margin-right: 10px;
+        height: 130px;
+        width: 130px;
+    }
+
+    .how-icon {
+        height: 150px;
     }
 }

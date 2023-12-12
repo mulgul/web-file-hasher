@@ -5,6 +5,7 @@ SITE COLORS
 white: #F5F5F5;
 grey: #b8b8b8;
 darker grey: #b0b0b0;
+real dark grey: #5e5e5e;
 light blue: #6DC7FF;
 light purple: #E6ABFF;
 blue: #1A6DFF;
@@ -38,20 +39,22 @@ input:focus, textarea {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 5vh;
+    padding-bottom: 25px;
+    padding-top: 20px;
     height: 50px;
     width: 100%;
     background-color: #F5F5F5;
 }
 
 #hasher-icon {
-    height: 25px;
+    height: 44px;
     margin-right: 5px;
 }
 
 .title {
-    font-size: 28px;
+    font-size: 46px;
     font-weight: 500;
+    color: #5e5e5e;
 }
 
 /* Page Dimessions*/
@@ -61,7 +64,8 @@ input:focus, textarea {
     flex-direction: column;
     align-items: center;
     width: 155vw;
-    height: 600px;
+    min-height: 487px;
+    padding-bottom: 105px;
     background-color: #F5F5F5;
     border-radius: 0 0 50% 50%;
 }
@@ -432,7 +436,7 @@ purple: #C822FF;
 
 .info-container-section {
     position: relative;
-    width: 100%;
+    width: 660px;
     display: flex;
     justify-content: center;
     padding: 50px;
@@ -441,19 +445,81 @@ purple: #C822FF;
 .info-container {
     position: relative;
     z-index: 1;
-    max-width: 1000px;
+    width: 660px;
     text-align: center;
 }
 
-.info-container h2 {
-    font-size: 24px;
+.header-1 {
+    font-size: 46px;
     color: #F5F5F5;
+    font-weight: 500;
+    margin-bottom: 45px;
 }
 
-.info-container p {
-    margin-top: 15px;
-    font-size: 20px;
+.section-container {
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 85px;
+    width: 490px;
+}
+
+.why-icon-container {
+    height: 140px;
+    width: 140px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    scroll-margin-left: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.how-icon-container {
+    height: 140px;
+    width: 140px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    margin-right: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+}
+
+.why-icon {
+    height: 100px;
+}
+
+.how-icon {
+    position: absolute;
+    height: 160px;
+    top: -20px;
+}
+
+.section-title {
     color: #F5F5F5;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.about-text {
+    line-height: 20px;
+    width: 500px;
+    font-size: 12px;
+    color: #F5F5F5;
+    text-align: left;
 }
 
 .info-container a {
@@ -465,16 +531,6 @@ purple: #C822FF;
 
 .info-container a:hover {
     color: grey;
-}
-
-.header-1 {
-    font-size: 46px;
-    color: #F5F5F5;
-}
-
-.about-text {
-    line-height: 35px;
-    width: 500px;
 }
 
 @media (max-width: 700px) {
@@ -505,6 +561,10 @@ purple: #C822FF;
 
     .page {
         border-radius: 0 0 42% 42%;
+    }
+
+    .info-container-section {
+        width: 300px;
     }
 }
 
@@ -537,9 +597,22 @@ purple: #C822FF;
     .page {
         border-radius: 0 0 42% 42%;
     }
+
+    /* .info-container-section {
+        width: 460px;
+    } */
 }
 
 @media (max-width: 400px) {
+
+    html, body {
+        overflow-x: hidden;
+    }
+    
+    body {
+        position: relative
+    }
+
     #dropArea {
         width: 340px;
     }
@@ -561,11 +634,48 @@ purple: #C822FF;
         padding: 0;
     }
 
-    .about-text {
-        width: 300px;
-    }
-
     .page {
         border-radius: 0 0 42% 42%;
+    }
+
+    .info-container-section {
+        width: 340px;
+    }
+
+    .info-container {
+        width: 340px;
+    }
+    
+    .section-container {
+        width: 340px;
+        height: 240px;
+    }
+
+    .text-container {
+        width: 190px;
+        height: 200px;
+    }
+
+    .about-text {
+        width: 180px;
+    }
+
+    .why-icon-container {
+        height: 130px;
+        width: 130px;
+    }
+
+    .why-icon {
+        height: 90px;
+    }
+
+    .how-icon-container {
+        margin-right: 10px;
+        height: 130px;
+        width: 130px;
+    }
+
+    .how-icon {
+        height: 150px;
     }
 }
