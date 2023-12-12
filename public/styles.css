@@ -5,6 +5,7 @@ SITE COLORS
 white: #F5F5F5;
 grey: #b8b8b8;
 darker grey: #b0b0b0;
+real dark grey: #5e5e5e;
 light blue: #6DC7FF;
 light purple: #E6ABFF;
 blue: #1A6DFF;
@@ -448,15 +449,42 @@ purple: #C822FF;
     text-align: center;
 }
 
-.info-container h2 {
-    font-size: 24px;
+.header-1 {
+    font-size: 46px;
     color: #F5F5F5;
+    font-weight: 500;
+    margin-bottom: 45px;
 }
 
-.info-container p {
-    margin-top: 15px;
-    font-size: 20px;
+.section-container {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+}
+
+.icon-container {
+
+}
+
+.section-title {
     color: #F5F5F5;
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.about-text {
+    line-height: 35px;
+    width: 500px;
+    font-size: 15px;
+    color: #F5F5F5;
+    text-align: left;
 }
 
 .info-container a {
@@ -468,17 +496,6 @@ purple: #C822FF;
 
 .info-container a:hover {
     color: grey;
-}
-
-.header-1 {
-    font-size: 46px;
-    color: #F5F5F5;
-    font-weight: 500;
-}
-
-.about-text {
-    line-height: 35px;
-    width: 500px;
 }
 
 @media (max-width: 700px) {

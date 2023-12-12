@@ -42,15 +42,25 @@
     </div>
     <section class="info-container-section">
         <div class="info-container">
-            <h1 class="header-1">About</h1>
-            <p class="about-text">
-                File hashing is a great way to ensure the equality of two files.
-                This is useful if you are transferring documents and you want to ensure the integrity of the file.
-                Without Having to open your documents you can compare byte for byte if the files are identical.
-                The following is a RUST-WASM based implementation, and uses audited OSS as the basis for the cryptographic hashing.
-                The source code is available <a href="https://github.com/mulgul/web-file-hasher">here</a>.
-                All hashing is done locally on your browser. No files, and information is sent to any server.
-            </p>
+            <h2 class="header-1">About</h2>
+            <div class="section-container">
+                <div class="text-container">
+                    <h3 class="section-title">Why is this important?</h3>
+                    <p class="about-text">File hashing is a great way to ensure the equality of two files.
+                        This is useful if you are transferring documents and you want to ensure the integrity of the file.
+                        Without Having to open your documents you can compare byte for byte if the files are identical.</p>
+                </div>
+                <div class="icon-container"></div>    
+            </div>
+            <div class="section-container">
+                <div class="icon-container"></div>
+                <div class="text-container">
+                    <h3 class="section-title">How do we implument this?</h3>
+                    <p class="about-text">The following is a RUST-WASM based implementation, and uses audited OSS as the basis for the cryptographic hashing.
+                        The source code is available <a href="https://github.com/mulgul/web-file-hasher">here</a>.
+                        All hashing is done locally on your browser. No files, and information is sent to any server.</p>
+                </div>
+            </div>
         </div>
     </section>
     <script src="main.js" type="module"></script>
