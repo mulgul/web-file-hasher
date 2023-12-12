@@ -655,6 +655,10 @@ purple: #C822FF;
         width: 190px;
         height: 200px;
     }
+    
+    .section-title {
+        text-align: left;
+    }
 
     .about-text {
         width: 180px;
