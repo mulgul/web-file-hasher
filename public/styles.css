@@ -400,9 +400,9 @@ input:focus, textarea {
     position:absolute;
     top: 1px;
     right: -1px;
-    width: 70px;
-    height: 15px;
-    font-size: 11px;
+    width: 80px;
+    height: 20px;
+    font-size: 14px;
     text-align: center;
     opacity: 0;
 }
@@ -416,7 +416,7 @@ input:focus, textarea {
 }
 
 #copied-check {
-    height: 11px;
+    height: 13px;
 }
 
 /*
