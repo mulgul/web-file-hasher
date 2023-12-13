@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;400;500;600;700;800&family=Poppins:wght@100;300;400;500;600;700&family=Raleway:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700&display=swap');
+
 /*
 SITE COLORS
 
@@ -6,6 +7,7 @@ white: #F5F5F5;
 grey: #b8b8b8;
 darker grey: #b0b0b0;
 real dark grey: #5e5e5e;
+black: #484848;
 light blue: #6DC7FF;
 light purple: #E6ABFF;
 blue: #1A6DFF;
@@ -30,8 +32,7 @@ input:focus, textarea {
     overflow: scroll;
     overflow-x: hidden;
     background-color: #1A6DFF;
-    font-family: "Raleway";
-    color: rgb(14, 14, 14);
+    font-family: "Mulish";
 }
 
 /* Header */
@@ -52,9 +53,9 @@ input:focus, textarea {
 }
 
 .title {
-    font-size: 46px;
-    font-weight: 500;
-    color: #5e5e5e;
+    font-size: 50px;
+    font-weight: 600;
+    color: #484848;
 }
 
 /* Page Dimessions*/
@@ -99,27 +100,27 @@ input:focus, textarea {
 }
 
 #formName {
-    font-size: 20px;
+    font-size: 25px;
     margin-top: 5px;
     margin-bottom: 20px;
     color: #b8b8b8;
 }
 #sub-text {
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 20px;
     color: #b8b8b8;
 }
 
 .button {
-    width: 95px;
-    height: 27px;
+    width: 120px;
+    height: 35px;
     padding: 2px;
-    font-size: 12px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
     color: #6DC7FF;
     text-align: center;
-    line-height: 27px;
+    line-height: 35px;
     background-image: linear-gradient(white, white), 
                       linear-gradient(to right, #6DC7FF, #C822FF);
     background-origin: border-box;
@@ -127,28 +128,6 @@ input:focus, textarea {
 }
 
 .button:hover {
-    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
-    color: rgb(245, 245, 245);
-}
-
-#copy-btn {
-    display: block;
-    width: 65px;
-    height: 27px;
-    padding: 2px;
-    font-size: 12px;
-    cursor: pointer;
-    border-radius: 5px;
-    color: #6DC7FF;
-    text-align: center;
-    line-height: 27px;
-    background-image: linear-gradient(white, white), 
-                      linear-gradient(to right, #6DC7FF, #C822FF);
-    background-origin: border-box;
-    background-clip: content-box, border-box;
-}
-
-#copy-btn:hover {
     background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
     color: rgb(245, 245, 245);
 }
@@ -209,7 +188,8 @@ input:focus, textarea {
 }
 
 .filename-div p {
-    font-size: 15px;
+    font-size: 16px;
+    color: #484848;
 }
 
 /* Dropdown */
@@ -232,7 +212,7 @@ input:focus, textarea {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    height: 8vh;
+    height: 75px;
     width: 150px;
     z-index: 5;
 }
@@ -242,14 +222,14 @@ input:focus, textarea {
 #hash-btn {
     cursor: pointer;
     width: 80px;
-    height: 24px;
+    height: 30px;
     padding: 2px;
-    font-size: 12px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
     color: #6DC7FF;
     text-align: center;
-    line-height: 25px;
+    line-height: 30px;
     background-image: linear-gradient(white, white), 
                       linear-gradient(to right, #6DC7FF, #C822FF);
     background-origin: border-box;
@@ -269,7 +249,7 @@ input:focus, textarea {
     justify-content: center;
     border: 1.5px solid #cdcfd3;
     border-radius: 3px;
-    height: 25px;
+    height: 32px;
     width: 130px;
     background-color: white;
 }
@@ -293,9 +273,9 @@ input:focus, textarea {
   
 .placeholder {
     color: #b8b8b8;
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 500;
-    margin-left: .5vw;
+    margin-left: 10px;
 }
 
 #chevron {
@@ -304,22 +284,22 @@ input:focus, textarea {
 }
   
 .input__selected {
-    color: #0b132b;
-    margin-left: .5vw;
+    color: #484848;
+    margin-left: 10px;
 }
   
 /* Dropdown styling */
 
 #hashName {
-    font-size: 12px;
-    color: #0b132b;
+    font-size: 16px;
+    color: #484848;
 }
 
 .structure {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    height: 108px;
+    height: 125px;
     width: 133px;
     overflow: scroll;
     overflow-x: hidden;
@@ -354,7 +334,7 @@ input:focus, textarea {
 
 #hashed-file-parent {
     width: 660px;
-    height: 150px;
+    height: 160px;
     position: relative;
 }
 
@@ -362,36 +342,44 @@ input:focus, textarea {
     border: 1px solid #ccc;
     border-radius: 3px;
     width: 660px;
-    height: 100px;
+    height: 103px;
     margin-bottom: 2.5vh;
     z-index: -1;
-    font-size: 12px;
-    font-weight: 100;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Mulish";
     padding: 0;
 }
 
 #returnFeild::placeholder {
     color: #b8b8b8;
-    font-size: 12px;
-    font-weight: 100;
+    font-size: 16px;
+    font-weight: 500;
     padding-left: 4px;
 }
 
-.copy-button {
-    width: 95px;
-    height: 27px;
+#copy-btn {
+    display: block;
+    width: 65px;
+    height: 30px;
     padding: 2px;
-    font-size: 12px;
+    font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
     color: #6DC7FF;
     text-align: center;
-    line-height: 27px;
+    line-height: 30px;
     background-image: linear-gradient(white, white), 
                       linear-gradient(to right, #6DC7FF, #C822FF);
     background-origin: border-box;
     background-clip: content-box, border-box;
 }
+
+#copy-btn:hover {
+    background: linear-gradient(45deg,#6DC7FF 0%,#C822FF 100%);
+    color: rgb(245, 245, 245);
+}
+
 
 .copied {
     display: flex;
@@ -450,7 +438,7 @@ purple: #C822FF;
 }
 
 .header-1 {
-    font-size: 46px;
+    font-size: 48px;
     color: #F5F5F5;
     font-weight: 500;
     margin-bottom: 45px;
@@ -458,7 +446,7 @@ purple: #C822FF;
 
 .section-container {
     display: flex;
-    margin-bottom: 30px;
+    margin-bottom:50px;
     justify-content: space-between;
     align-items: center;
 }
@@ -467,7 +455,7 @@ purple: #C822FF;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    height: 85px;
+    height: 115px;
     width: 490px;
 }
 
@@ -510,14 +498,15 @@ purple: #C822FF;
 .section-title {
     color: #F5F5F5;
     font-weight: 500;
-    font-size: 20px;
-    margin-bottom: 5px;
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
 .about-text {
     line-height: 20px;
     width: 500px;
-    font-size: 12px;
+    font-size: 16px;
+    font-weight: 400;
     color: #F5F5F5;
     text-align: left;
 }
