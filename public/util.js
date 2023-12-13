@@ -15,6 +15,9 @@ export function readFileAsUrlToBase64(file) {
 	});
 }
 
+/**
+ * Credit: https://stackoverflow.com/questions/10420352/converting-file-size-in-bytes-to-human-readable-string
+ */
 export function convertFileSize(bytes, si = false, dp = 1) {
 	const thresh = si ? 1000 : 1024;
 
